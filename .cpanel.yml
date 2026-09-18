@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/fahadtra/public_html/
+    - /bin/cp -R *.html $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
