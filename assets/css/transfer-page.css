@@ -1,19 +1,40 @@
 /* Transfer page layout: keep the published price tables as the main focus. */
 .transfer-page .transfer-hero {
-  min-height: 560px;
-  padding: 120px 0 76px;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 390px;
+  align-items: center;
+  overflow: hidden;
+  padding: 90px 0 40px;
   background-position: center 55%;
 }
-.transfer-page .transfer-hero .container { display: flex; align-items: center; }
+.transfer-page .transfer-hero::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10,25,18,.84), rgba(10,25,18,.28));
+  content: "";
+  pointer-events: none;
+}
+.transfer-page .transfer-hero .container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100% - 40px, 1180px);
+  height: auto;
+  align-items: center;
+  margin-inline: auto;
+}
 .transfer-page .transfer-hero .breadcrumb-area-wrapper {
   display: flex;
-  width: min(100%, 760px);
+  width: min(100%, 1000px);
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 0;
 }
-.transfer-page .transfer-hero .nav-bread-crumb { margin-bottom: 12px; }
+.transfer-page .transfer-hero .nav-bread-crumb { margin: 0 0 12px; }
 .transfer-eyebrow {
   display: block;
   margin-bottom: 9px;
@@ -24,15 +45,28 @@
   text-transform: uppercase;
 }
 .transfer-hero .transfer-eyebrow { color: #e0b253; }
-.transfer-page .transfer-hero .title { max-width: 720px; margin: 0; }
-.transfer-hero-copy { max-width: 650px; margin: 0; color: #f4f1e9; font-size: 17px; line-height: 1.7; }
-.transfer-hero-actions,.transfer-booking-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.transfer-page.inner-page .rts-breadcrumb-area.one .breadcrumb-area-wrapper .title {
+  max-width: 1000px;
+  margin: 0 0 10px;
+  font: 600 clamp(2rem, 5.2vw, 3.7rem)/1.05 'Playfair Display', Georgia, serif;
+}
+.transfer-hero-copy { max-width: 650px; margin: 0 0 18px; color: rgba(255,255,255,.9); font-size: 15px; line-height: 1.6; }
+.transfer-hero-actions,.transfer-booking-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 0; }
+.transfer-page .transfer-hero-actions .btn { min-height: 44px; padding: 0 22px; font-size: 11px; }
 .transfer-page .btn--outline-light { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 22px; border: 1px solid rgba(255,255,255,.7); border-radius: 6px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
 .transfer-page .btn--outline-light:hover { background: rgba(255,255,255,.12); }
-.transfer-intro { padding: 50px 0 24px; background: #f7f4ed; }
-.transfer-intro .container { max-width: 920px; text-align: center; }
+.transfer-intro { padding: 40px 0; background: #f0ece3; }
+.transfer-intro .container {
+  display: grid;
+  width: min(100% - 40px, 1180px);
+  max-width: 1180px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  margin-inline: auto;
+}
 .transfer-intro h2,.transfer-section h2 { margin: 0; color: #1d372b; font: 600 clamp(1.8rem,3.2vw,2.8rem)/1.16 'Playfair Display',Georgia,serif; }
-.transfer-intro p { max-width: 760px; margin: 12px auto 0; color: #6f7068; line-height: 1.75; }
+.transfer-intro p { max-width: 620px; margin: 0; color: #6f7068; line-height: 1.75; }
 .transfer-prices { padding-top: 34px; background: #f7f4ed; }
 .transfer-page .pricing-table-wrapper { margin-bottom: 28px; border-radius: 8px; box-shadow: none; }
 .transfer-table-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
@@ -97,9 +131,13 @@
   .transfer-text-link { grid-column: 1; }
 }
 @media(max-width:760px) {
-  .transfer-page .transfer-hero { min-height: 470px; padding: 104px 0 48px; }
-  .transfer-hero-copy { font-size: 15px; }
-  .transfer-intro { padding-top: 38px; }
+  .transfer-page .transfer-hero { min-height: 430px; padding: 90px 0 36px; }
+  .transfer-page .transfer-hero .container,.transfer-intro .container { width: min(100% - 32px, 1180px); }
+  .transfer-page.inner-page .rts-breadcrumb-area.one .breadcrumb-area-wrapper .title { font-size: clamp(2rem, 8vw, 3rem); }
+  .transfer-hero-copy { font-size: 14px; }
+  .transfer-intro { padding: 38px 0; }
+  .transfer-intro .container { grid-template-columns: 1fr; gap: 12px; }
+  .transfer-intro p { max-width: 620px; }
   .transfer-table-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .transfer-page .table-responsive { overflow-x: auto; }
   .transfer-page .pricing-table th,.transfer-page .pricing-table td { padding: 13px 12px; font-size: 14px; }
