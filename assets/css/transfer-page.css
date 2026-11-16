@@ -1,40 +1,10 @@
 /* Transfer page layout: keep the published price tables as the main focus. */
-.transfer-page .transfer-hero {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  min-height: 390px;
-  align-items: center;
-  overflow: hidden;
-  padding: 90px 0 40px;
-  background-position: center 55%;
-}
-.transfer-page .transfer-hero::after {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(10,25,18,.84), rgba(10,25,18,.28));
-  content: "";
-  pointer-events: none;
-}
-.transfer-page .transfer-hero .container {
-  position: relative;
-  z-index: 1;
-  display: flex;
+.transfer-page .transfer-prices > .container,
+.transfer-page .transfer-section > .container {
   width: min(100% - 40px, 1180px);
-  height: auto;
-  align-items: center;
+  max-width: 1180px;
   margin-inline: auto;
 }
-.transfer-page .transfer-hero .breadcrumb-area-wrapper {
-  display: flex;
-  width: min(100%, 1000px);
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0;
-}
-.transfer-page .transfer-hero .nav-bread-crumb { margin: 0 0 12px; }
 .transfer-eyebrow {
   display: block;
   margin-bottom: 9px;
@@ -44,35 +14,17 @@
   letter-spacing: .18em;
   text-transform: uppercase;
 }
-.transfer-hero .transfer-eyebrow { color: #e0b253; }
-.transfer-page.inner-page .rts-breadcrumb-area.one .breadcrumb-area-wrapper .title {
-  max-width: 1000px;
-  margin: 0 0 10px;
-  font: 600 clamp(2rem, 5.2vw, 3.7rem)/1.05 'Playfair Display', Georgia, serif;
-}
-.transfer-hero-copy { max-width: 650px; margin: 0 0 18px; color: rgba(255,255,255,.9); font-size: 15px; line-height: 1.6; }
-.transfer-hero-actions,.transfer-booking-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 0; }
-.transfer-page .transfer-hero-actions .btn { min-height: 44px; padding: 0 22px; font-size: 11px; }
+.transfer-booking-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 0; }
 .transfer-page .btn--outline-light { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 22px; border: 1px solid rgba(255,255,255,.7); border-radius: 6px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
 .transfer-page .btn--outline-light:hover { background: rgba(255,255,255,.12); }
-.transfer-intro { padding: 40px 0; background: #f0ece3; }
-.transfer-intro .container {
-  display: grid;
-  width: min(100% - 40px, 1180px);
-  max-width: 1180px;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 48px;
-  margin-inline: auto;
-}
-.transfer-intro h2,.transfer-section h2 { margin: 0; color: #1d372b; font: 600 clamp(1.8rem,3.2vw,2.8rem)/1.16 'Playfair Display',Georgia,serif; }
-.transfer-intro p { max-width: 620px; margin: 0; color: #6f7068; line-height: 1.75; }
-.transfer-prices { padding-top: 34px; background: #f7f4ed; }
+.transfer-section h2 { margin: 0; color: #1d372b; font: 600 clamp(1.8rem,3.2vw,2.8rem)/1.16 'Playfair Display',Georgia,serif; }
+.transfer-prices { padding: 34px 0 48px; background: #f7f4ed; }
 .transfer-page .pricing-table-wrapper { margin-bottom: 28px; border-radius: 8px; box-shadow: none; }
 .transfer-table-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
 .transfer-table-heading .transfer-eyebrow { margin-bottom: 7px; }
 .transfer-table-heading .section-title { margin: 0; color: #1d372b; font: 600 clamp(1.55rem,2.5vw,2.2rem)/1.18 'Playfair Display',Georgia,serif; }
 .transfer-table-heading > p { margin: 0 0 3px; color: #6f7068; font-size: 14px; }
+.transfer-table-note { margin: 12px 0 0; color: #6f7068; font-size: 13px; line-height: 1.6; }
 .transfer-page .pricing-table { min-width: 420px; }
 .transfer-page .airport-table { width: 100%; min-width: 0; table-layout: fixed; }
 .transfer-page .airport-table th:first-child,
@@ -97,6 +49,10 @@
 .transfer-included-inner { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; column-gap: 36px; row-gap: 12px; }
 .transfer-included h2 { color: #fff; }
 .transfer-included p { margin: 0; color: #d0d4cc; line-height: 1.75; }
+.transfer-included-copy > p { margin-bottom: 12px; }
+.transfer-included-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 20px; margin: 0; padding: 0; list-style: none; }
+.transfer-included-list li { display: flex; align-items: flex-start; gap: 9px; color: #f7f4ed; font-size: 14px; line-height: 1.55; }
+.transfer-included-list i { flex: 0 0 auto; margin-top: 4px; color: #e0b253; font-size: 12px; }
 .transfer-included .transfer-eyebrow { color: #e0b253; }
 .transfer-text-link { grid-column: 2; color: #e0b253; font-size: 13px; font-weight: 700; text-decoration: none; }
 .transfer-text-link i { margin-left: 7px; }
@@ -128,16 +84,11 @@
 @media(max-width:900px) {
   .transfer-service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .transfer-included-inner { grid-template-columns: 1fr; }
+  .transfer-included-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .transfer-text-link { grid-column: 1; }
 }
 @media(max-width:760px) {
-  .transfer-page .transfer-hero { min-height: 430px; padding: 90px 0 36px; }
-  .transfer-page .transfer-hero .container,.transfer-intro .container { width: min(100% - 32px, 1180px); }
-  .transfer-page.inner-page .rts-breadcrumb-area.one .breadcrumb-area-wrapper .title { font-size: clamp(2rem, 8vw, 3rem); }
-  .transfer-hero-copy { font-size: 14px; }
-  .transfer-intro { padding: 38px 0; }
-  .transfer-intro .container { grid-template-columns: 1fr; gap: 12px; }
-  .transfer-intro p { max-width: 620px; }
+  .transfer-page .transfer-prices > .container,.transfer-page .transfer-section > .container { width: min(100% - 32px, 1180px); }
   .transfer-table-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .transfer-page .table-responsive { overflow-x: auto; }
   .transfer-page .pricing-table th,.transfer-page .pricing-table td { padding: 13px 12px; font-size: 14px; }
@@ -153,11 +104,19 @@
   .transfer-step-grid,.transfer-details-inner { grid-template-columns: 1fr; gap: 24px; }
   .transfer-step-grid { gap: 18px; }
   .transfer-details ul { grid-template-columns: 1fr; }
+  .transfer-included-list { grid-template-columns: 1fr; }
 }
 @media(max-width:520px) {
-  .transfer-page .transfer-hero { min-height: 430px; }
-  .transfer-hero-actions,.transfer-booking-actions { width: 100%; flex-direction: column; }
-  .transfer-hero-actions > a,.transfer-booking-actions > a { width: 100%; }
+  .transfer-booking-actions { width: 100%; flex-direction: column; }
+  .transfer-booking-actions > a { width: 100%; }
   .transfer-service-grid { grid-template-columns: 1fr; }
   .transfer-service-grid article { padding: 20px; }
+}
+@media(min-width:1024px) {
+  .transfer-prices { padding-top: 28px; padding-bottom: 40px; }
+  .transfer-section { padding: 64px 0; }
+  .transfer-service-grid { gap: 14px; }
+  .transfer-service-grid article { padding: 18px 16px; }
+  .transfer-service-grid h3 { margin-top: 10px; font-size: 18px; }
+  .transfer-step-grid { gap: 22px; }
 }

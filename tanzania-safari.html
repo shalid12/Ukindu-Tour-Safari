@@ -63,26 +63,12 @@
     <link rel="stylesheet" href="assets/css/home-premium.css">
     <style>
         .inner-main { min-height:55vh; }
-        .inner-hero { position:relative; isolation:isolate; display:flex; align-items:flex-end; min-height:330px; overflow:hidden; padding:90px 0 58px; background:#142a20; color:#fff; }
-        .inner-hero::before { content:""; position:absolute; z-index:0; inset:0; background:linear-gradient(90deg,rgba(10,25,18,.68),rgba(10,25,18,.12)),url('assets/images/banner/tanzania_safari_from_zanzibar.jpg') center 48%/cover no-repeat; }
-        .inner-hero::after { content:""; position:absolute; z-index:1; inset:0; background:linear-gradient(0deg,rgba(9,24,17,.35),transparent 60%); }
-        .inner-hero>.container { position:relative; z-index:2; width:min(100% - 40px,1240px); margin-inline:auto; }
-        .inner-hero .eyebrow,.inner-section .eyebrow { display:block; margin-bottom:14px; color:#d4a13f; font-size:12px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; }
-        .inner-hero h1 { max-width:850px; margin:0 0 14px; color:#fff; font:600 clamp(2rem,5.8vw,3.7rem)/1.05 'Playfair Display',Georgia,serif; }
-        .inner-hero p { max-width:700px; margin:0; color:rgba(255,255,255,.86); font-size:17px; line-height:1.75; }
-        .safari-hero { min-height:352px; padding:95px 0 40px; }
-        .safari-hero p { max-width:640px; font-size:14px; line-height:1.55; }
-        .safari-hero .inner-action { min-height:40px; padding:0 18px; font-size:10px; }
-        .safari-hero .safari-actions { display:flex; align-items:center; gap:25px; margin-top:20px; flex-wrap:wrap; }
-        .safari-text-link { color:#fff; font-size:12px; font-weight:800; letter-spacing:.1em; text-decoration:none; text-transform:uppercase; }
-        .safari-text-link i { margin-left:6px; color:#e0b253; }
+        .inner-section .eyebrow { display:block; margin-bottom:14px; color:#d4a13f; font-size:12px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; }
         .inner-section { padding:clamp(52px,7vw,92px) 0; }
         .inner-section .container { width:min(100% - 40px,1180px); margin-inline:auto; }
-        .safari-intro { padding:42px 0; background:#f0ece3; }
-        .safari-intro-inner { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:48px; }
-        .safari-intro h2,.safari-section-heading h2,.safari-planning h2 { margin:0; color:#1d372b; font:600 clamp(1.8rem,3.3vw,2.7rem)/1.16 'Playfair Display',Georgia,serif; }
-        .safari-intro .eyebrow,.safari-section-heading .eyebrow { color:#a77a2a; }
-        .safari-intro-inner>p,.safari-section-heading>p,.safari-planning p { margin:0; color:#6f7068; font-size:15px; line-height:1.75; }
+        .safari-section-heading h2,.safari-planning h2 { margin:0; color:#1d372b; font:600 clamp(1.8rem,3.3vw,2.7rem)/1.16 'Playfair Display',Georgia,serif; }
+        .safari-section-heading .eyebrow { color:#a77a2a; }
+        .safari-section-heading>p,.safari-planning p { margin:0; color:#6f7068; font-size:15px; line-height:1.75; }
         .safari-packages { background:#fbf8f2; }
         .safari-section-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; margin-bottom:30px; }
         .safari-section-heading>div { max-width:640px; }.safari-section-heading>p { max-width:420px; }
@@ -116,11 +102,21 @@
         .safari-planning { background:#1d372b; color:#fff; }.safari-planning h2 { color:#fff; }
         .safari-planning-inner { display:flex; align-items:center; justify-content:space-between; gap:36px; }
         .safari-planning p { max-width:700px; margin-top:10px; color:#d0d4cc; }.safari-planning .eyebrow { color:#e0b253; }
-        .inner-action { display:inline-flex; min-height:48px; align-items:center; justify-content:center; gap:10px; padding:0 23px; border-radius:6px; background:#c9973b; color:#15251c; font-size:12px; font-weight:800; letter-spacing:.1em; text-decoration:none; text-transform:uppercase; }
-        .inner-action:hover { background:#ddb25e; color:#15251c; }
         @media(max-width:1000px) { .safari-package-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; } }
-        @media(max-width:760px) { .inner-hero { min-height:290px; padding:78px 0 42px; }.inner-hero>.container,.inner-section .container { width:min(100% - 32px,1180px); }.safari-hero { min-height:430px; padding:100px 0 36px; }.safari-hero p { max-width:500px; font-size:14px; line-height:1.65; }.safari-intro-inner { grid-template-columns:1fr; gap:12px; }.safari-section-heading { display:block; }.safari-section-heading>p { margin-top:10px; }.safari-destination-list { grid-template-columns:repeat(2,minmax(0,1fr)); }.safari-destination-list a:nth-child(3n+2),.safari-destination-list a:nth-child(3n+3) { padding-left:10px; border-left:0; }.safari-destination-list a:nth-child(even) { padding-left:18px; border-left:1px solid #ded8cc; }.safari-planning-inner { align-items:flex-start; flex-direction:column; gap:20px; } }
-        @media(max-width:520px) { .safari-hero { min-height:430px; }.safari-hero .safari-actions { align-items:flex-start; flex-direction:column; gap:14px; }.safari-package-grid { grid-template-columns:1fr; gap:18px; }.safari-destination-list strong { font-size:17px; } }
+        @media(max-width:760px) { .inner-section .container { width:min(100% - 32px,1180px); }.safari-section-heading { display:block; }.safari-section-heading>p { margin-top:10px; }.safari-destination-list { grid-template-columns:repeat(2,minmax(0,1fr)); }.safari-destination-list a:nth-child(3n+2),.safari-destination-list a:nth-child(3n+3) { padding-left:10px; border-left:0; }.safari-destination-list a:nth-child(even) { padding-left:18px; border-left:1px solid #ded8cc; }.safari-planning-inner { align-items:flex-start; flex-direction:column; gap:20px; } }
+        @media(max-width:520px) { .safari-package-grid { grid-template-columns:1fr; gap:18px; }.safari-destination-list strong { font-size:17px; } }
+        @media(min-width:1024px) {
+            .safari-package-grid { gap:20px; }
+            .safari-card-image { aspect-ratio:4/2.5; }
+            .safari-card .content { gap:8px; padding:18px; }
+            .safari-card-title { font-size:22px; }
+            .safari-card .badge { top:12px; left:12px; padding:6px 9px; }
+            .safari-card-foot { padding-top:12px; }
+            .safari-link { min-height:42px; }
+        }
+        @media(min-width:1200px) {
+            .safari-package-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+        }
     </style>
 
     <!-- Google Tag Manager -->
@@ -221,7 +217,7 @@
     </aside>
 
     <main id="main" class="inner-main safari-page">
-        <section class="inner-hero safari-hero" style="--hero-image:url('assets/images/banner/tanzania_safari_from_zanzibar.jpg')">
+        <section class="inner-hero safari-hero">
             <div class="container">
                 <span class="eyebrow">Tanzania Safaris</span>
                 <h1>Explore Tanzania Safari</h1>
@@ -232,8 +228,8 @@
                 </div>
             </div>
         </section>
-        <section class="inner-section safari-intro">
-            <div class="container safari-intro-inner">
+        <section class="inner-section site-intro">
+            <div class="container site-intro-inner">
                 <div><span class="eyebrow">Find your journey</span><h2>Your Tanzania safari starts here.</h2></div>
                 <p>Choose a day trip from Zanzibar, explore a northern circuit itinerary, or combine safari with a Zanzibar stay. Each package below links to its full itinerary. Contact our team for current details and pricing.</p>
             </div>

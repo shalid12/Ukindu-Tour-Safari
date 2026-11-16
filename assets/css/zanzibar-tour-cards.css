@@ -1,45 +1,5 @@
 /* Shared tour card treatment, adapted from the Tanzania safari cards. */
 .zanzibar-tour-listing { color: #1b1b19; }
-.zanzibar-tour-hero {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  min-height: 500px;
-  align-items: flex-end;
-  overflow: hidden;
-  padding: 150px 0 58px;
-  background: #142a20;
-  color: #fff;
-}
-.zanzibar-tour-hero::before {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  background: linear-gradient(90deg,rgba(10,25,18,.68),rgba(10,25,18,.12));
-  content: "";
-}
-.zanzibar-halfday-listing .zanzibar-tour-hero::before {
-  background-image: linear-gradient(90deg,rgba(10,25,18,.68),rgba(10,25,18,.12)),url("../images/banner/zanzibar_halfday.jpg");
-  background-position: center,center 48%;
-  background-size: cover,cover;
-  background-repeat: no-repeat,no-repeat;
-}
-.zanzibar-fullday-listing .zanzibar-tour-hero::before {
-  background-image: linear-gradient(90deg,rgba(10,25,18,.68),rgba(10,25,18,.12)),url("../images/banner/zanzibar_fullday.jpg");
-  background-position: center,center 48%;
-  background-size: cover,cover;
-  background-repeat: no-repeat,no-repeat;
-}
-.zanzibar-tour-hero::after {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background: linear-gradient(0deg,rgba(9,24,17,.35),transparent 60%);
-  content: "";
-}
-.zanzibar-tour-hero > .container { position: relative; z-index: 2; width: min(100% - 40px,1240px); margin-inline: auto; }
-.zanzibar-tour-hero .eyebrow,
-.zanzibar-tour-intro .eyebrow,
 .zanzibar-tour-heading .eyebrow {
   display: block;
   margin: 0 0 14px;
@@ -48,27 +8,9 @@
   letter-spacing: .2em;
   text-transform: uppercase;
 }
-.zanzibar-tour-hero h1 {
-  max-width: 850px;
-  margin: 0 0 14px;
-  color: #fff;
-  font: 600 clamp(2.5rem,6vw,4.8rem)/1.05 "Playfair Display",Georgia,serif;
-}
-.zanzibar-tour-hero p { max-width: 700px; margin: 0; color: rgba(255,255,255,.86); font-size: 17px; line-height: 1.75; }
-.zanzibar-tour-hero-actions { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; margin-top: 26px; }
-.zanzibar-tour-hero-actions .inner-action { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 0 23px; border-radius: 6px; background: #c9973b; color: #15251c; font: 800 12px/1 "DM Sans",sans-serif; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
-.zanzibar-tour-hero-actions .inner-action:hover { background: #ddb25e; }
-.zanzibar-tour-hero-actions .safari-text-link { color: #fff; font: 800 12px/1.4 "DM Sans",sans-serif; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
-.zanzibar-tour-hero-actions .safari-text-link i { margin-left: 6px; color: #e0b253; }
-.zanzibar-tour-intro { padding: 42px 0; background: #f0ece3; }
-.zanzibar-tour-listing .zanzibar-tour-intro > .container,
 .zanzibar-tour-listing .rts-popular-package-area > .container { width: min(100% - 40px,1180px); max-width: none; }
-.zanzibar-tour-intro-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
-.zanzibar-tour-intro h2,
 .zanzibar-tour-heading h2 { margin: 0; color: #1d372b; font: 600 clamp(1.8rem,3.3vw,2.7rem)/1.16 "Playfair Display",Georgia,serif; }
-.zanzibar-tour-intro .eyebrow,
 .zanzibar-tour-heading .eyebrow { color: #a77a2a; }
-.zanzibar-tour-intro-inner > p,
 .zanzibar-tour-heading > p { max-width: 460px; margin: 0; color: #6f7068; font-size: 15px; line-height: 1.75; }
 .zanzibar-tour-listing .rts-popular-package-area { background: #fbf8f2; }
 .zanzibar-tour-listing .rts-popular-package-area .section-inner { margin-top: 0; padding-top: 64px; }
@@ -161,11 +103,7 @@
 }
 .zanzibar-tour-link:hover { background: #142a20; color: #fff !important; }
 @media(max-width:767px) {
-  .zanzibar-tour-hero { min-height: 400px; padding: 120px 0 42px; }
-  .zanzibar-tour-hero > .container { width: min(100% - 32px,1180px); }
-  .zanzibar-tour-listing .zanzibar-tour-intro > .container,
   .zanzibar-tour-listing .rts-popular-package-area > .container { width: min(100% - 32px,1180px); }
-  .zanzibar-tour-intro-inner { grid-template-columns: 1fr; gap: 12px; }
   .zanzibar-tour-heading { display: block; }
   .zanzibar-tour-heading > p { margin-top: 10px; }
   .zanzibar-tour-listing .rts-popular-package-area .section-inner { padding-top: 36px; }
@@ -177,7 +115,15 @@
   .zanzibar-tour-listing .rts-popular-package-area .row > [class*="col-"] { flex: 0 0 50%; max-width: 50%; }
 }
 @media(max-width:520px) {
-  .zanzibar-tour-hero { min-height: 370px; }
-  .zanzibar-tour-hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
   .zanzibar-tour-listing .rts-popular-package-area .row { --bs-gutter-x: 18px; --bs-gutter-y: 18px; row-gap: 18px !important; }
+}
+@media(min-width:1024px) {
+  .zanzibar-tour-listing .rts-popular-package-area .section-inner { padding-top: 44px; }
+  .zanzibar-tour-listing .rts-popular-package-area .row { --bs-gutter-x: 20px; --bs-gutter-y: 20px; row-gap: 20px !important; }
+  .zanzibar-tour-listing .package-wrapper3 .image-area { aspect-ratio: 4 / 2.5; }
+  .zanzibar-tour-listing .package-wrapper3 .content { gap: 8px; padding: 16px 16px 18px; }
+  .zanzibar-tour-listing .package-wrapper3 .content .title { font-size: 20px; }
+}
+@media(min-width:1200px) {
+  .zanzibar-tour-listing .rts-popular-package-area .row > [class*="col-"] { flex: 0 0 25%; max-width: 25%; }
 }
