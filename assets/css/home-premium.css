@@ -2023,141 +2023,6 @@ fieldset.field {
   grid-template-rows: 1fr;
 }
 
-/* ---------- Footer ---------- */
-.site-footer {
-  background: var(--charcoal);
-  color: rgba(250, 246, 238, 0.72);
-  padding: 96px 0 30px;
-  font-size: 15px;
-}
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.4fr repeat(4, 1fr);
-  gap: 48px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid rgba(250, 246, 238, 0.1);
-}
-.footer-brand {
-  display: grid;
-  gap: 20px;
-  align-content: start;
-}
-.footer-brand img {
-  height: 64px;
-  width: auto;
-}
-.footer-col h4 {
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-.footer-col ul {
-  display: grid;
-  gap: 11px;
-}
-.footer-col a:hover,
-.footer-brand a:hover {
-  color: var(--gold);
-}
-.footer-contact li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-.footer-contact i {
-  color: var(--gold);
-  flex: 0 0 30px;
-  width: 30px;
-  margin-top: 3px;
-  font-size: 25px;
-  line-height: 1.2;
-  text-align: center;
-}
-.socials {
-  display: flex;
-  gap: 10px;
-}
-.socials a {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(250, 246, 238, 0.18);
-  display: grid;
-  place-items: center;
-  color: var(--ivory);
-  transition: all 0.25s;
-}
-.socials a:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--charcoal);
-}
-.footer-reviews {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.footer-reviews img {
-  height: 40px;
-  width: auto;
-  border-radius: 6px;
-}
-.footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 12px;
-  padding-top: 28px;
-  font-size: 13px;
-}
-
-/* ---------- Floating WhatsApp ---------- */
-.wa-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 900;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 20px 8px 8px;
-  background: #1f9e55;
-  color: #fff;
-  border-radius: 100px;
-  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.45);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  transition:
-    transform 0.3s var(--ease),
-    background 0.3s;
-}
-.wa-float:hover {
-  transform: translateY(-3px);
-  background: #188547;
-}
-.wa-float .ic {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  display: grid;
-  place-items: center;
-  font-size: 24px;
-}
-.wa-float .txt small {
-  display: block;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  opacity: 0.85;
-  text-transform: uppercase;
-}
-
 /* GTranslate float */
 .gt_float_switcher,
 .gtranslate_wrapper .gt_float_switcher {
@@ -2227,12 +2092,6 @@ fieldset.field {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-  .footer-top {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
 }
 
 /* ---------- Tablet & Below (<= 1023px) ---------- */
@@ -2249,14 +2108,7 @@ fieldset.field {
   .section-head {
     margin-bottom: 44px;
   }
-  .footer-top {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .footer-bottom {
-    gap: 14px;
-    padding-bottom: 56px;
-  }
-  .discover-grid.swipe,
+.discover-grid.swipe,
   .tour-grid.swipe,
   .more-grid.swipe,
   .reviews-track.swipe,
@@ -2918,52 +2770,9 @@ fieldset.field {
     padding-right: 0;
     font-size: 14.5px;
   }
-
-  /* 14. Footer Mobile */
-  .site-footer {
-    padding: 60px 0 28px;
-  }
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px 20px;
-    padding-bottom: 40px;
-  }
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-    padding-bottom: 72px;
-  }
-
-  .wa-float {
-    display: none;
-  }
   .gt_float_switcher,
   .gtranslate_wrapper .gt_float_switcher {
     bottom: 20px !important;
-  }
-}
-
-/* ---------- Desktop footer clearance ---------- */
-@media (min-width: 1024px) {
-  .footer-bottom {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-    gap: 12px;
-    padding-left: 40px;
-    padding-right: 80px;
-    padding-bottom: 28px;
-  }
-  .footer-bottom p:first-child {
-    grid-column: 2;
-    text-align: center;
-  }
-  .footer-bottom p:last-child {
-    display: none;
   }
 }
 

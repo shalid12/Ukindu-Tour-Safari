@@ -74,8 +74,6 @@
     <link rel="stylesheet preload" href="assets/fonts/custom-font.css" as="style">
     <!-- magnific popup css -->
     <link rel="stylesheet preload" href="assets/css/plugins/magnific-popup.css" as="style">
-    <!-- metismenu css -->
-    <link rel="stylesheet preload" href="assets/css/plugins/metismenu.css" as="style">
     <!-- bootstrap css -->
     <link rel="stylesheet preload" href="assets/css/vendor/bootstrap.min.css" as="style">
     <!-- bootstrap css -->
@@ -110,9 +108,15 @@
 
         gtag('config', 'AW-18415240195');
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="assets/css/site-footer.css">
+    <link rel="stylesheet" href="assets/css/zanzibar-tour-cards.css">
+    <link rel="stylesheet" href="assets/css/site-header.css">
 </head>
 
-<body class="home-wild-bg onepage">
+<body class="home-wild-bg onepage zanzibar-tour-listing zanzibar-halfday-listing">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK9LJBB4" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -146,78 +150,98 @@
     </div>
     <!-- preloader end -->
 
-    <!-- header area start -->
-    <header class="header-style-one header--sticky header-four p-0">
-        <div class="container">
-            <div class="header-inner">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="header-style-one-wrapper">
-                            <div class="left-area">
-                                <div class="logo-area">
-                                    <a href="/index" class="logo">
-                                        <img class="light" src="assets/images/logo/ukindu_tour.png" alt="logo">
-                                        <img class="dark" src="assets/images/logo/ukindu_tour.png" alt="logo">
-                                    </a>
-                                </div>
-                                <nav class="main-nav-area">
-                                    <ul class="list-unstyled rts-desktop-menu">
-                                        <li class="menu-item rts-has-dropdown">
-                                            <a class="main-element rts-dropdown-main-element" href="/index">Home</a>
-                                        </li>
-                                        <li class="menu-item rts-has-dropdown">
-                                            <a href="#" class="rts-dropdown-main-element">Zanzibar Tours</a>
-                                            <ul class="rts-submenu list-unstyled menu-home">
-                                                <li class="nav-item"><a class="nav-link page"
-                                                        href="/zanzibar-halfday-tours">Zanzibar
-                                                        Half-Day Tours</a></li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="/zanzibar-fullday-tours">Zanzibar
-                                                        Full-Day Tours</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item"><a class="main-element rts-dropdown-main-element"
-                                                href="/tanzania-safari">Tanzania Safari</a></li>
-                                        <li class="menu-item"><a class="main-element rts-dropdown-main-element"
-                                                href="/transfer">Transfer</a></li>
-                                        <li class="menu-item"><a class="main-element rts-dropdown-main-element"
-                                                href="/about">About</a></li>
-                                        <li class="menu-item"><a class="main-element rts-dropdown-main-element"
-                                                href="/faqs">FAQs</a></li>
-                                        <li class="menu-item"><a class="main-element rts-dropdown-main-element"
-                                                href="/contact">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div class="button-area-start">
-                                <button class="menu-btn menu-btn-toggle" type="button" aria-label="Open mobile menu"><i
-                                        class="fa-solid fa-bars"></i></button><a href="/contact"
-                                    class="rts-btn btn-primary">Book Now</a>
-                            </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/index" class="brand" aria-label="Ukindu Tour &amp; Safari home">
+                <img src="assets/images/logo/ukindu_logo_160.png" width="56" height="57" alt="Ukindu Tour &amp; Safari logo">
+                <span class="brand-name"><b>Ukindu</b><small>Tour &amp; Safari</small></span>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li>
+                        <button class="nav-toggle" type="button" aria-expanded="false" aria-haspopup="true">Zanzibar <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i></button>
+                        <div class="dropdown">
+                            <a href="/zanzibar-halfday-tours">Zanzibar Half-Day Tours</a>
+                            <a href="/zanzibar-fullday-tours">Zanzibar Full-Day Tours</a>
+                            <a href="/transfer">Airport &amp; Ferry Transfers</a>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                    <li><a href="/tanzania-safari">Safaris</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a class="btn btn--gold btn--sm header-cta" href="/contact#contact-form">Plan My Trip</a>
+                <a class="icon-btn header-wa" href="https://wa.me/255712868079" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <button class="icon-btn menu-open" type="button" data-drawer-open aria-expanded="false" aria-label="Open menu" aria-controls="drawer"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
-    <!-- header area end -->
-
-    <div class="rts-breadcrumb-area one" data-bg-src="assets/images/banner/zanzibar_halfday.jpg">
-        <div class="container h-100">
-            <div class="breadcrumb-area-wrapper">
-                <div class="nav-bread-crumb">
-                    <a href="/index">Home</a>
-                    <span><i class="fa-solid fa-chevron-right"></i></span>
-                    <a href="#" class="current">Zanzibar Tours</a>
-                </div>
-                <h1 class="title">Explore Zanzibar Half-Day Tours</h1>
-            </div>
+    <div class="drawer-backdrop" data-drawer-close></div>
+    <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
+        <div class="drawer-top">
+            <a href="/index"><img src="assets/images/logo/ukindu_logo_160.png" width="44" height="45" alt="Ukindu Tour mobile header logo"></a>
+            <button class="icon-btn" type="button" data-drawer-close aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         </div>
-    </div>
+        <nav aria-label="Mobile navigation">
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li>
+                    <button class="sub-toggle" type="button" aria-expanded="false">Zanzibar Tours <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i></button>
+                    <div class="sub">
+                        <a href="/zanzibar-halfday-tours">Zanzibar Half-Day Tours</a>
+                        <a href="/zanzibar-fullday-tours">Zanzibar Full-Day Tours</a>
+                    </div>
+                </li>
+                <li><a href="/tanzania-safari">Safaris</a></li>
+                <li><a href="/transfer">Airport &amp; Ferry Transfers</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/faqs">FAQs</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="drawer-cta">
+            <a class="btn btn--gold" href="/contact#contact-form">Plan My Trip</a>
+            <a class="btn btn--wa" href="https://wa.me/255712868079" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
+        <div class="drawer-social">
+            <a href="https://www.facebook.com/share/1HqPVyRzLN/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ukindu_tours/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@ukindutour" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://maps.app.goo.gl/oLW5EkBoyWxEwP4EA?g_st=aw" target="_blank" rel="noopener" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
+        </div>
+    </aside>
 
-    <section class="rts-popular-package-area">
+    <main id="main" class="zanzibar-tour-listing zanzibar-halfday-listing">
+        <section class="zanzibar-tour-hero">
+            <div class="container">
+                <span class="eyebrow">Zanzibar Half-Day Tours</span>
+                <h1>Explore Zanzibar Half-Day Tours</h1>
+                <p>Make the most of your day with private island experiences, from Stone Town and Jozani Forest to sandbanks, snorkeling and sunset cruises.</p>
+                <div class="zanzibar-tour-hero-actions">
+                    <a class="inner-action" href="/contact#contact-form">Plan your tour <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="safari-text-link" href="#halfday-tours">Explore half-day tours <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+        <section class="zanzibar-tour-intro">
+            <div class="container zanzibar-tour-intro-inner">
+                <div><span class="eyebrow">Find your experience</span><h2>Your Zanzibar day, made memorable.</h2></div>
+                <p>Choose a short island adventure that fits your schedule. Our half-day tours are arranged with local support and can be tailored to your interests and plans.</p>
+            </div>
+        </section>
+
+    <section class="rts-popular-package-area" id="halfday-tours">
         <div class="container">
             <div class="section-inner position-relative mt--60">
+                <div class="zanzibar-tour-heading">
+                    <div><span class="eyebrow">Find your itinerary</span><h2>Zanzibar half-day tours</h2></div>
+                    <p>Browse our half-day experiences and select a tour to view its full details and contact our team.</p>
+                </div>
                 <div class="row g-5 pb--50">
                     <div class="col-xl-4 col-lg-6 col-md-6">
                         <div class="package-wrapper3 radius-10 image-transform wow fadeInLeft" data-wow-delay="0.6s">
@@ -518,213 +542,74 @@
         </div>
     </section>
 
-    <div class="rts-footer-area-one yacht bg-dark pt--100 pb--30">
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
-            <div class="footer-inner">
-                <div class="left">
-                    <div class="single-footer-widget-one logo-area">
-                        <a href="/index" class="logo">
-                            <img class="light" src="assets//images/logo/ukindu_tour_and_safari_logo.png" alt="logo">
-                        </a>
-                        <p class="desc">Nungwi Beach, Zanzibar.</p>
-                        <ul class="get-in-touch">
-                            <li><a href="callto:+255712868079">Phone: +255 712 868 079</a></li>
-                            <li><a href="mailto:ukindutour@gmail.com" target="_blank">Email: ukindutour@gmail.com</a>
-                            </li>
-                            <li><a href="mailto:info@ukindutour.co.tz" target="_blank">Email: info@ukindutour.co.tz</a>
-                            </li>
-                        </ul>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/index"><img src="assets/images/logo/ukindu_logo_160.png" width="64" height="66" loading="lazy" alt="Ukindu Tour & Safari logo"></a>
+                    <p>Based in Zanzibar, we create private safaris, island tours and tailor-made journeys with personal local support.</p>
+                    <div class="socials">
+                        <a href="https://www.facebook.com/share/1HqPVyRzLN/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/ukindu_tours?igsh=dDk0MWZkamhjaWxt" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@ukindutour?_r=1&amp;_t=ZS-97m8GxVoYZ6" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://maps.app.goo.gl/oLW5EkBoyWxEwP4EA?g_st=aw" target="_blank" rel="noopener" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
                     </div>
                 </div>
-                <div class="single-footer-widget-one essential-links">
-                    <h6 class="title text-uppercase">Tours and Safari</h6>
+                <div class="footer-col">
+                    <h4>Explore</h4>
                     <ul>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#BA6827" />
-                            </svg>
-                            <a href="/zanzibar-halfday-tours">Zanzibar Half-Day Tours</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#BA6827" />
-                            </svg>
-                            <a href="/zanzibar-fullday-tours">Zanzibar Full-Day Tours</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#BA6827" />
-                            </svg>
-                            <a href="/tanzania-safari">Tanzania Safari from Zanzibar</a>
-                        </li>
+                        <li><a href="/tanzania-safari">Safaris</a></li>
+                        <li><a href="/zanzibar-halfday-tours">Zanzibar Half-Day Tours</a></li>
+                        <li><a href="/zanzibar-fullday-tours">Zanzibar Full-Day Tours</a></li>
+                        <li><a href="/tanzania-safari#safari-destinations">Destinations</a></li>
+                        <li><a href="/zanzibar-halfday-tours">Experiences</a></li>
+                        <li><a href="/contact#contact-form">Tailor-Made Trips</a></li>
                     </ul>
                 </div>
-                <div class="single-footer-widget-one essential-links">
-                    <h6 class="title text-uppercase">Popular Destinations</h6>
+                <div class="footer-col">
+                    <h4>About</h4>
                     <ul>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#119CE6" />
-                            </svg>
-                            <a href="/stone-town-tour">Stone Town</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#119CE6" />
-                            </svg>
-                            <a href="/jozani-forest-walking-tour">Jozani Forest</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#119CE6" />
-                            </svg>
-                            <a href="/mikumi-day-trip-safari-from-zanzibar">Mikumi National Park</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#119CE6" />
-                            </svg>
-                            <a href="/serengeti-safari-from-zanzibar">Serengeti National Park</a>
-                        </li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/about#our-team">Our Team</a></li>
+                        <li><a href="/about">Why Travel With Us</a></li>
+                        <li><a href="https://www.google.com/search?q=Ukindu+Tour+and+Safari+Zanzibar+Google+reviews" target="_blank" rel="noopener">Reviews</a></li>
+                        <li><a href="/transfer">Transfer</a></li>
                     </ul>
                 </div>
-                <div class="single-footer-widget-one essential-links">
-                    <h6 class="title text-uppercase">Support</h6>
+                <div class="footer-col">
+                    <h4>Travel Resources</h4>
                     <ul>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#FFFFFF" />
-                            </svg>
-                            <a href="/contact">Contact Us</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#FFFFFF" />
-                            </svg>
-                            <a href="/about">About Us</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#FFFFFF" />
-                            </svg>
-                            <a href="/transfer">Transfer</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#FFFFFF" />
-                            </svg>
-                            <a href="/index">Home</a>
-                        </li>
-                        <li><svg width="7" height="10" viewBox="0 0 7 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.5 0L6.75 5L0.5 10V0Z" fill="#FFFFFF" />
-                            </svg>
-                            <a href="/faqs">FAQs</a>
-                        </li>
+                        <li><a href="/faqs">Travel Guide</a></li>
+                        <li><a href="/faqs">Safari FAQ</a></li>
+                        <li><a href="/stone-town-tour">Stone Town</a></li>
+                        <li><a href="/jozani-forest-walking-tour">Jozani Forest</a></li>
+                        <li><a href="/mikumi-day-trip-safari-from-zanzibar">Mikumi National Park</a></li>
+                        <li><a href="/serengeti-safari-from-zanzibar">Serengeti National Park</a></li>
                     </ul>
                 </div>
-                <div class="single-footer-widget-one get-app">
-                    <h6 class="title text-uppercase">Write a Review</h6>
-                    <div class="get-btn-area">
-                        <a href="https://www.google.com/search?sca_esv=41b038c3963b7565&rlz=1C1CHBF_enTZ1126TZ1126&sxsrf=APpeQnuIpHb598WUAD-ksHkvCvSmTL6oow:1785281718041&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_zg8Ufa0OSdDRGkcY81S6IWDfSYVAsCqqLb8YjC8DH6o0Oe_-b9JFVZ-fxg-6ahzCT76CJT3Rq-tu4NUbYpUGEHxZ1N0eZfdv7xTr5RSbRoabWUUdA%3D%3D&q=Ukindu+tour+and+Safari+Reviews&sa=X&ved=2ahUKEwi0woLVxPaVAxVPgf0HHfotMkQQ0bkNegQIKxAF&biw=1280&bih=551&dpr=1.5#lrd=0x18431f28e7c8fcd3:0x8a4dbd44108b9b73,3,,,,"
-                            target="_blank"><img src="assets/images/footer/Google_Business_app.png"
-                                alt="Google Business review badge"></a>
-
-                        <a href="#"><img src="assets/images/footer/TripAdvisor_app.png"
-                                alt="TripAdvisor review badge"></a>
-                    </div>
-                    <div class="review-area">
-                        <ul>
-                            <li><img src="assets/images/footer/star-01.svg" alt="Rating star"></li>
-                            <li>
-                                <p>Based on 70 review</p>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/255712868079" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><i class="fa-solid fa-phone"></i><a href="tel:+255712868079">+255 712 868 079</a></li>
+                        <li><i class="fa-regular fa-envelope"></i><a href="mailto:ukindutour@gmail.com">ukindutour@gmail.com</a></li>
+                        <li><i class="fa-regular fa-envelope"></i><a href="mailto:info@ukindutour.co.tz">info@ukindutour.co.tz</a></li>
+                        <li><i class="fa-solid fa-location-dot"></i><a href="https://maps.app.goo.gl/oLW5EkBoyWxEwP4EA?g_st=aw" target="_blank" rel="noopener">Nungwi Beach, Zanzibar</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- copyright area start -->
-                    <div class="copyright-area-start">
-                        <p>Copyright ©
-                            <script>
-                                document.write(
-                                    new Date().getFullYear()
-                                )
-                            </script> All Rights Reserved,  <span><a href="#">Ukindu Tour and Safari</a></span>
-                        </p>
-                    </div>
-                    <!-- copyright area end -->
-                </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span id="year">2026</span> All Rights Reserved, <a href="/index">Ukindu Tour and Safari</a></p>
+                <p>Tanzania safaris &middot; Zanzibar tours &middot; Transfers</p>
             </div>
         </div>
-    </div>
-    <!-- footer area end -->
-
-    <div id="side-bar" class="side-bar header-two">
-        <button class="close-icon-menu" type="button" aria-label="Close mobile menu"><i
-                class="fa-solid fa-xmark"></i></button>
-        <a class="logo" href="/index"><img src="assets/images/logo/ukindu_tour_and_safari_logo.png"
-                alt="Ukindu Tour mobile header logo"></a>
-        <!-- mobile menu area start -->
-        <div class="mobile-menu-main">
-            <nav class="nav-main mainmenu-nav mt--30">
-                <ul class="mainmenu metismenu" id="mobile-menu-active">
-                    <li>
-                        <a href="/index" class="main">Home</a>
-                    </li>
-                    <li class="has-droupdown">
-                        <a href="#" class="main">Zanzibar Tours</a>
-                        <ul class="submenu mm-collapse">
-                            <li><a class="mobile-menu-link" href="/zanzibar-halfday-tours">Zanzibar Half-Day
-                                    Tours</a></li>
-                            <li><a class="mobile-menu-link" href="/zanzibar-fullday-tours">Zanzibar Full-Day
-                                    Tours</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item"><a class="main-element rts-dropdown-main-element"
-                            href="/tanzania-safari">Tanzania Safari</a></li>
-                    <li class="menu-item"><a class="main-element rts-dropdown-main-element"
-                            href="/transfer">Transfer</a></li>
-                    <li class="menu-item"><a class="main-element rts-dropdown-main-element" href="/about">About</a>
-                    </li>
-                    <li class="menu-item"><a class="main-element rts-dropdown-main-element" href="/faqs">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="/contact" class="main">Contact Us</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="follow-us">
-                <ul>
-                    <li><a href="https://www.facebook.com/share/1HqPVyRzLN/" aria-label="Facebook"><i
-                                class="fab fa-facebook-f"
-                                style="font-family: &quot;Font Awesome 6 Brands&quot;, Bangla867, sans-serif;"></i></a>
-                    </li>
-                    <li><a href="https://www.tiktok.com/@ukindutour?_r=1&_t=ZS-97m8GxVoYZ6" aria-label="tiktok"><i
-                                class="fab fa-tiktok"
-                                style="font-family: &quot;Font Awesome 6 Brands&quot;, Bangla867, sans-serif;"></i></a>
-                    </li>
-                    <li><a href="https://www.instagram.com/ukindu_tours?igsh=dDk0MWZkamhjaWxt" aria-label="instagram"><i
-                                class="fab fa-instagram"
-                                style="font-family: &quot;Font Awesome 6 Brands&quot;, Bangla867, sans-serif;"></i></a>
-                    </li>
-                    <li><a href="https://maps.app.goo.gl/oLW5EkBoyWxEwP4EA?g_st=aw" aria-label="google"><i
-                                class="fa-brands fa-google"
-                                style="font-family: &quot;Font Awesome 6 Brands&quot;, Bangla867, sans-serif;"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- mobile menu area end -->
-    </div>
+    </footer>
 
     <!-- jquery js -->
     <script defer src="assets/js/plugins/jquery.min.js"></script>
     <script defer src="assets/js/plugins/bootstrap.min.js"></script>
-    <script defer src="assets/js/plugins/metismenu.js"></script>
     <script defer src="assets/js/vendor/jqueryui.js"></script>
     <script defer src="assets/js/vendor/waypoint.js"></script>
     <script defer src="assets/js/plugins/swiper.js"></script>
@@ -735,14 +620,15 @@
     <script defer src="assets/js/plugins/isotop.js"></script>
     <script defer src="assets/js/plugins/contact-form.js"></script>
     <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/js/site-header.js"></script>
+    <script defer src="assets/js/zanzibar-tour-cards.js"></script>
 
     <div class="gtranslate_wrapper"></div>
     <script>window.gtranslateSettings = { "default_language": "en", "languages": ["en", "fr", "it", "es", "de", "pl", "ru", "cs"], "wrapper_selector": ".gtranslate_wrapper" }</script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <a href="https://wa.me/+255712868079?text=Hello%20Ukindu%20Tour%20and%20Safari%2C%20I%20would%20like%20to%20book%20a%20Tour"
-        target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+        target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat with us on WhatsApp"><span class="ic"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span><span class="txt"><small>WhatsApp</small>Chat with us</span>
     </a>
 
     <div id="anywhere-home"></div>

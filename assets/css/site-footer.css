@@ -1,0 +1,167 @@
+/* Shared footer styling for every site page. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip !important;
+}
+/* The interior template has an ivory body background. Keep any final body
+   pixels below the footer on the same charcoal canvas as the footer. */
+html:has(.site-footer) {
+  background-color: #1b1b19;
+}
+body:has(.site-footer) {
+  background-image: linear-gradient(#1b1b19, #1b1b19);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 100% 40px;
+}
+.site-footer {
+  background: #1b1b19;
+  color: rgba(250, 246, 238, 0.72);
+  padding: 96px 0 30px;
+  font: 15px/1.7 "DM Sans", "Inter", system-ui, sans-serif;
+  min-width: 0;
+}
+.site-footer .container {
+  width: 100%;
+  max-width: 1240px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.site-footer .footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr));
+  gap: 48px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(250, 246, 238, 0.1);
+}
+.site-footer .footer-brand {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+.site-footer .footer-brand img {
+  display: block;
+  width: auto;
+  height: 64px;
+}
+.site-footer .footer-brand p,
+.site-footer .footer-bottom p {
+  margin: 0;
+  color: inherit;
+}
+.site-footer .footer-col h4 {
+  margin: 0 0 20px;
+  color: #c8963e;
+  font-family: "DM Sans", "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.site-footer .footer-top ul {
+  display: grid;
+  gap: 11px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-footer .footer-top li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+.site-footer .footer-col a:hover,
+.site-footer .footer-brand a:hover {
+  color: #c8963e;
+}
+.site-footer .footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+.site-footer .footer-contact li a { min-width: 0; overflow-wrap: anywhere; }
+.site-footer .footer-contact i {
+  flex: 0 0 24px;
+  width: 24px;
+  margin-top: 4px;
+  color: #c8963e;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+}
+.site-footer .socials {
+  display: flex;
+  gap: 10px;
+}
+.site-footer .socials a {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(250, 246, 238, 0.18);
+  border-radius: 50%;
+  color: #faf6ee;
+  transition: all 0.25s;
+}
+.site-footer .socials a:hover {
+  border-color: #c8963e;
+  background: #c8963e;
+  color: #1b1b19;
+}
+.site-footer .footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 28px;
+  font-size: 13px;
+}
+@media (max-width: 1199px) {
+  .site-footer .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .site-footer .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 1023px) {
+  .site-footer .container { padding-right: 28px; padding-left: 28px; }
+  .site-footer .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .site-footer .footer-bottom { gap: 14px; padding-bottom: 56px; }
+}
+@media (min-width: 1024px) {
+  .site-footer .footer-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding-right: 80px;
+    padding-bottom: 28px;
+    padding-left: 40px;
+  }
+  .site-footer .footer-bottom p:first-child { grid-column: 2; text-align: center; }
+  .site-footer .footer-bottom p:last-child { display: none; }
+}
+@media (max-width: 760px) {
+  .site-footer { padding: 60px 0 28px; }
+  .site-footer .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+    padding-bottom: 40px;
+  }
+  .site-footer .footer-brand { grid-column: 1 / -1; }
+  .site-footer .footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 72px;
+    text-align: center;
+  }
+}

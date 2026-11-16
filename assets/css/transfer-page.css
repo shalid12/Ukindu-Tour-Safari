@@ -1,0 +1,125 @@
+/* Transfer page layout: keep the published price tables as the main focus. */
+.transfer-page .transfer-hero {
+  min-height: 560px;
+  padding: 120px 0 76px;
+  background-position: center 55%;
+}
+.transfer-page .transfer-hero .container { display: flex; align-items: center; }
+.transfer-page .transfer-hero .breadcrumb-area-wrapper {
+  display: flex;
+  width: min(100%, 760px);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+.transfer-page .transfer-hero .nav-bread-crumb { margin-bottom: 12px; }
+.transfer-eyebrow {
+  display: block;
+  margin-bottom: 9px;
+  color: #a77a2a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.transfer-hero .transfer-eyebrow { color: #e0b253; }
+.transfer-page .transfer-hero .title { max-width: 720px; margin: 0; }
+.transfer-hero-copy { max-width: 650px; margin: 0; color: #f4f1e9; font-size: 17px; line-height: 1.7; }
+.transfer-hero-actions,.transfer-booking-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.transfer-page .btn--outline-light { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 22px; border: 1px solid rgba(255,255,255,.7); border-radius: 6px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+.transfer-page .btn--outline-light:hover { background: rgba(255,255,255,.12); }
+.transfer-intro { padding: 50px 0 24px; background: #f7f4ed; }
+.transfer-intro .container { max-width: 920px; text-align: center; }
+.transfer-intro h2,.transfer-section h2 { margin: 0; color: #1d372b; font: 600 clamp(1.8rem,3.2vw,2.8rem)/1.16 'Playfair Display',Georgia,serif; }
+.transfer-intro p { max-width: 760px; margin: 12px auto 0; color: #6f7068; line-height: 1.75; }
+.transfer-prices { padding-top: 34px; background: #f7f4ed; }
+.transfer-page .pricing-table-wrapper { margin-bottom: 28px; border-radius: 8px; box-shadow: none; }
+.transfer-table-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+.transfer-table-heading .transfer-eyebrow { margin-bottom: 7px; }
+.transfer-table-heading .section-title { margin: 0; color: #1d372b; font: 600 clamp(1.55rem,2.5vw,2.2rem)/1.18 'Playfair Display',Georgia,serif; }
+.transfer-table-heading > p { margin: 0 0 3px; color: #6f7068; font-size: 14px; }
+.transfer-page .pricing-table { min-width: 420px; }
+.transfer-page .airport-table { width: 100%; min-width: 0; table-layout: fixed; }
+.transfer-page .airport-table th:first-child,
+.transfer-page .airport-table td:first-child { width: 68%; }
+.transfer-page .airport-table th:last-child,
+.transfer-page .airport-table td:last-child { width: 32%; white-space: nowrap; }
+.transfer-page .route-table { min-width: 620px; }
+.transfer-page .pricing-table th { background: #1d372b; color: #fff; font-size: 13px; letter-spacing: .06em; text-align: left; text-transform: uppercase; }
+.transfer-page .pricing-table th:last-child,.transfer-page .pricing-table td:not(:first-child) { text-align: right; }
+.transfer-page .pricing-table td { color: #454840; font-size: 15px; }
+.transfer-page .pricing-table tbody tr:hover { background: #fbf8f2; }
+.transfer-section { padding: clamp(58px,7vw,88px) 0; }
+.transfer-services { background: #fff; }
+.transfer-section-heading { max-width: 760px; margin: 0 auto 32px; text-align: center; }
+.transfer-section-heading > p { margin: 12px 0 0; color: #6f7068; line-height: 1.7; }
+.transfer-service-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; }
+.transfer-service-grid article { min-width: 0; padding: 24px 20px; border: 1px solid #e5e0d6; background: #fff; }
+.transfer-service-grid i { color: #a77a2a; font-size: 21px; }
+.transfer-service-grid h3,.transfer-step-grid h3 { margin: 14px 0 8px; color: #1d372b; font: 600 20px/1.2 'Playfair Display',Georgia,serif; }
+.transfer-service-grid p,.transfer-step-grid p { margin: 0; color: #6f7068; font-size: 14px; line-height: 1.7; }
+.transfer-included { background: #1d372b; color: #f7f4ed; }
+.transfer-included-inner { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; column-gap: 36px; row-gap: 12px; }
+.transfer-included h2 { color: #fff; }
+.transfer-included p { margin: 0; color: #d0d4cc; line-height: 1.75; }
+.transfer-included .transfer-eyebrow { color: #e0b253; }
+.transfer-text-link { grid-column: 2; color: #e0b253; font-size: 13px; font-weight: 700; text-decoration: none; }
+.transfer-text-link i { margin-left: 7px; }
+.transfer-steps,.transfer-faq { background: #f7f4ed; }
+.transfer-step-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; }
+.transfer-step-grid article { padding-top: 20px; border-top: 1px solid #d9d1c3; }
+.transfer-step-grid article > span { color: #a77a2a; font-size: 12px; font-weight: 800; letter-spacing: .16em; }
+.transfer-step-grid h3 { margin-top: 12px; }
+.transfer-details { background: #fff; }
+.transfer-details-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; }
+.transfer-details-inner > div > p { margin: 12px 0 0; color: #6f7068; }
+.transfer-details ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 20px; margin: 0; padding: 0; list-style: none; }
+.transfer-details li { position: relative; padding-left: 24px; color: #454840; font-size: 14px; }
+.transfer-details li::before { position: absolute; left: 0; color: #a77a2a; content: '✓'; font-weight: 800; }
+.transfer-booking,.transfer-final-cta { background: #1d372b; color: #f7f4ed; text-align: center; }
+.transfer-booking .container,.transfer-final-cta .container { max-width: 800px; }
+.transfer-booking h2,.transfer-final-cta h2 { color: #fff; }
+.transfer-booking p,.transfer-final-cta p { max-width: 660px; margin: 12px auto 20px; color: #d0d4cc; line-height: 1.75; }
+.transfer-booking .transfer-eyebrow,.transfer-final-cta .transfer-eyebrow { color: #e0b253; }
+.transfer-booking-actions { justify-content: center; }
+.transfer-final-cta { background: linear-gradient(90deg,rgba(14,38,27,.91),rgba(14,38,27,.78)),url('../images/banner/zanzibar_transfers.jpg') center/cover; }
+.transfer-faq-list { max-width: 900px; margin: 0 auto; }
+.transfer-faq-list details { margin-bottom: 10px; border: 1px solid #e1ddd3; background: #fff; }
+.transfer-faq-list summary { position: relative; padding: 18px 48px 18px 20px; color: #1d372b; font-weight: 700; cursor: pointer; list-style: none; }
+.transfer-faq-list summary::-webkit-details-marker { display: none; }
+.transfer-faq-list summary::after { position: absolute; top: 50%; right: 20px; color: #a77a2a; content: '+'; font-size: 22px; transform: translateY(-50%); }
+.transfer-faq-list details[open] summary::after { content: '−'; }
+.transfer-faq-list details p { margin: 0; padding: 0 20px 18px; color: #6f7068; line-height: 1.7; }
+@media(max-width:900px) {
+  .transfer-service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .transfer-included-inner { grid-template-columns: 1fr; }
+  .transfer-text-link { grid-column: 1; }
+}
+@media(max-width:760px) {
+  .transfer-page .transfer-hero { min-height: 470px; padding: 104px 0 48px; }
+  .transfer-hero-copy { font-size: 15px; }
+  .transfer-intro { padding-top: 38px; }
+  .transfer-table-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .transfer-page .table-responsive { overflow-x: auto; }
+  .transfer-page .pricing-table th,.transfer-page .pricing-table td { padding: 13px 12px; font-size: 14px; }
+  .transfer-page .route-table { width: 100%; min-width: 0; border-collapse: separate; border-spacing: 0; }
+  .transfer-page .route-table thead { display: none; }
+  .transfer-page .route-table tbody { display: grid; gap: 10px; }
+  .transfer-page .route-table tbody tr { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border: 1px solid #e5e0d6; background: #fff; }
+  .transfer-page .route-table tbody td { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; gap: 3px; border: 0; padding: 10px 12px; text-align: left !important; }
+  .transfer-page .route-table tbody td:first-child { grid-column: 1 / -1; padding-bottom: 8px; background: #fbf8f2; color: #1d372b; font-weight: 700; }
+  .transfer-page .route-table tbody td:not(:first-child)::before { color: #6f7068; content: attr(data-label); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .transfer-page .route-table tbody td:not(:first-child) { color: #8a611d; font-size: 16px; font-weight: 800; }
+  .transfer-page .route-table tbody td[colspan="2"] { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; }
+  .transfer-step-grid,.transfer-details-inner { grid-template-columns: 1fr; gap: 24px; }
+  .transfer-step-grid { gap: 18px; }
+  .transfer-details ul { grid-template-columns: 1fr; }
+}
+@media(max-width:520px) {
+  .transfer-page .transfer-hero { min-height: 430px; }
+  .transfer-hero-actions,.transfer-booking-actions { width: 100%; flex-direction: column; }
+  .transfer-hero-actions > a,.transfer-booking-actions > a { width: 100%; }
+  .transfer-service-grid { grid-template-columns: 1fr; }
+  .transfer-service-grid article { padding: 20px; }
+}

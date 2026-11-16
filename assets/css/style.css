@@ -151,22 +151,6 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  body {
-    overflow: hidden;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  body {
-    overflow: hidden;
-  }
-}
-@media only screen and (max-width: 767px) {
-  body {
-    overflow: hidden;
-  }
-}
-
 h1,
 h2,
 h3,
@@ -15093,32 +15077,6 @@ ul li {
   display: block;
 }
 
-.whatsapp-float {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 9999;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25d366;
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  font-size: 28px;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.whatsapp-float:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  color: #ffffff;
-}
-
 .after-none::after {
   display: none;
 }
@@ -17551,6 +17509,96 @@ body.with-sidebar {
 .rts-breadcrumb-area.four .title {
   color: var(--color-white);
   margin-bottom: 0;
+}
+
+/* Match the editorial forest-and-ivory system on legacy tour detail pages. */
+body.home-wild-bg.onepage {
+  --color-primary: #1f3a2e;
+  --color-primary-btn: #c8963e;
+  --color-primary-2: #142a20;
+  --color-secondary: #1f3a2e;
+  --color-secondary-2: #c8963e;
+  --color-bg-1: #faf6ee;
+  --color-bg-2: #f3ecdf;
+  --color-bg-3: #faf6ee;
+  --color-bg-4: #1f3a2e;
+  --color-home-bg: #faf6ee;
+  --color-hiking-bg: #faf6ee;
+  --color-yacht-bg: #faf6ee;
+  --body-bg: #faf6ee;
+  --color-border: rgba(27, 27, 25, 0.12);
+  --color-heading: #1d372b;
+  --color-heading-1: #1d372b;
+  --color-body-1: #2a2925;
+  --color-title: #1d372b;
+  --color-title-dark: #1d372b;
+  --color-title-nav: #1d372b;
+  --font-primary: "DM Sans", sans-serif;
+  --font-secondary: "DM Sans", sans-serif;
+  --font-four: "DM Sans", sans-serif;
+  background-color: #faf6ee;
+  color: #2a2925;
+  font-family: "DM Sans", sans-serif;
+}
+
+body.home-wild-bg.onepage :where(h1, h2, h3, h4, h5, h6) {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+body.home-wild-bg.onepage .rts-breadcrumb-area.four {
+  isolation: isolate;
+  display: flex;
+  min-height: clamp(390px, 44vw, 500px);
+  align-items: flex-end;
+  padding: 130px 0 58px;
+  background-position: center;
+  background-size: cover;
+}
+
+body.home-wild-bg.onepage .rts-breadcrumb-area.four::after {
+  display: block;
+  z-index: 0;
+  background: linear-gradient(90deg, rgba(10, 25, 18, 0.78), rgba(10, 25, 18, 0.2));
+}
+
+body.home-wild-bg.onepage .rts-breadcrumb-area.four > .container {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+}
+
+body.home-wild-bg.onepage .rts-breadcrumb-area.four .nav-bread-crumb {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+  font: 600 12px/1.5 "DM Sans", sans-serif;
+}
+
+body.home-wild-bg.onepage .rts-breadcrumb-area.four .title {
+  max-width: 850px;
+  font: 600 clamp(2.5rem, 6vw, 4.8rem)/1.05 "Playfair Display", Georgia, serif;
+}
+
+body.home-wild-bg.onepage .rts-section-gap,
+body.home-wild-bg.onepage .rts-section-gapTop {
+  padding-top: clamp(50px, 7vw, 88px);
+}
+
+body.home-wild-bg.onepage .rts-section-gap,
+body.home-wild-bg.onepage .rts-section-gapBottom {
+  padding-bottom: clamp(50px, 7vw, 88px);
+}
+
+@media (max-width: 760px) {
+  body.home-wild-bg.onepage .rts-breadcrumb-area.four {
+    min-height: 360px;
+    padding: 100px 0 42px;
+  }
+
+  body.home-wild-bg.onepage .rts-breadcrumb-area.four > .container {
+    width: min(100% - 32px, 1180px);
+  }
 }
 
 .rts-brand-area .image-area {

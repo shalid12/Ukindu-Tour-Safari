@@ -7,15 +7,12 @@
 05. rtsJs.odoMeter();
 06. rtsJs.searchOption();
 07. rtsJs.backToTopInit();
-08. rtsJs.stickyHeader();
-09. rtsJs.sideMenu();
-10. rtsJs.metismenu();
-11. rtsJs.preloader();
-12. rtsJs.smoothScroll();
-13. rtsJs.isotop();
-14. rtsJs.countDown();
-15. rtsJs.slider_drag_cursor();
-16. rtsJs.rtlToggle();
+08. rtsJs.preloader();
+09. rtsJs.smoothScroll();
+10. rtsJs.isotop();
+11. rtsJs.countDown();
+12. rtsJs.slider_drag_cursor();
+13. rtsJs.rtlToggle();
 
 
 
@@ -49,12 +46,8 @@
       rtsJs.searchOption();
       rtsJs.odoMeter();
       rtsJs.backToTopInit();
-      rtsJs.stickyHeader();
-      rtsJs.sideMenu();
-      rtsJs.sideMenu2();
       rtsJs.smoothScroll();
       rtsJs.isotop();
-      rtsJs.metismenu();
       rtsJs.slider_drag_cursor();
       rtsJs.rtlToggle();
       rtsJs.regionAreaActive();
@@ -1410,98 +1403,6 @@
         });
       });
     },
-    // sticky header activation
-    stickyHeader: function (e) {
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 150) {
-          $(".header--sticky").addClass("sticky");
-        } else {
-          $(".header--sticky").removeClass("sticky");
-        }
-      });
-    },
-    // side menu desktop
-    sideMenu: function () {
-      // metismenu active
-      $("#mobile-menu-active2").metisMenu();
-
-      // collups menu side right
-      $(document).on("click", ".menu-btn-toggle2", function () {
-        $("#side-bar2").addClass("show");
-        $("#anywhere-home").addClass("bgshow");
-      });
-      $(document).on("click", ".close-icon-menu", function () {
-        $("#side-bar2").removeClass("show");
-        $("#anywhere-home").removeClass("bgshow");
-      });
-      $(document).on("click", "#anywhere-home", function () {
-        $("#side-bar2").removeClass("show");
-        $("#anywhere-home").removeClass("bgshow");
-      });
-      $(document).on("click", ".onepage .mainmenu li a", function () {
-        $("#side-bar2").removeClass("show");
-        $("#anywhere-home").removeClass("bgshow");
-      });
-    },
-    sideMenu2: function () {
-      // metismenu init only once under 992px
-      if ($(window).width() < 992) {
-        $("#mobile-menu-active").metisMenu();
-      }
-
-      // open sidebar
-      $(document).on("click", ".menu-btn-toggle", function () {
-        if ($(window).width() < 992) {
-          $("#side-bar").addClass("show");
-          $("#anywhere-home").addClass("bgshow");
-        }
-      });
-
-      // close sidebar via close button
-      $(document).on("click", ".close-icon-menu", function () {
-        if ($(window).width() < 992) {
-          $("#side-bar").removeClass("show");
-          $("#anywhere-home").removeClass("bgshow");
-        }
-      });
-
-      // close sidebar via overlay
-      $(document).on("click", "#anywhere-home", function () {
-        if ($(window).width() < 992) {
-          $("#side-bar").removeClass("show");
-          $("#anywhere-home").removeClass("bgshow");
-        }
-      });
-
-      // close sidebar on real mobile nav item click, but not on the parent submenu trigger
-      $(document).on(
-        "click",
-        "#side-bar .mainmenu a, #side-bar .mobile-menu-link, #side-bar .main",
-        function (event) {
-          if ($(window).width() < 992) {
-            const $target = $(event.currentTarget);
-
-            if (
-              $target.closest("li.has-droupdown").length &&
-              $target.hasClass("main")
-            ) {
-              return;
-            }
-
-            $("#side-bar").removeClass("show");
-            $("#anywhere-home").removeClass("bgshow");
-          }
-        },
-      );
-
-      // remove sidebar classes when screen >= 992px
-      $(window).on("resize", function () {
-        if ($(window).width() >= 992) {
-          $("#side-bar").removeClass("show");
-          $("#anywhere-home").removeClass("bgshow");
-        }
-      });
-    },
     smoothScroll: function (e) {
       $(document).on("click", '.onepage a[href^="#"]', function (event) {
         event.preventDefault();
@@ -1597,9 +1498,6 @@
           event.preventDefault();
         });
       });
-    },
-    metismenu: function () {
-      $("#mobile-menu-active").metisMenu();
     },
     slider_drag_cursor: function () {
       const cursor = document.querySelector(".slider-drag-cursor");
