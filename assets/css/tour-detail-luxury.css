@@ -35,7 +35,7 @@ body.uk-home.tour-detail-page {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: var(--td-hero-img, url("../images/package/stone_town_06.jpg")) center 45% / cover no-repeat;
+  background: var(--td-hero-img, url("../images/package/stone_town_06.jpg")) center 32% / cover no-repeat;
 }
 
 .td-hero::after {

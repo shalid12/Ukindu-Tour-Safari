@@ -644,7 +644,7 @@ body.zanzibar-tour-listing .zanzibar-tour-hero::before {
 body.uk-home .about-page .about-hero { --hero-image: url("../images/banner/zanzibar_red_monkey.jpg"); }
 body.uk-home .faq-page .faq-hero { --hero-image: url("../images/banner/tanzania_safari.jpg"); }
 body.uk-home .contact-page .contact-hero { --hero-image: url("../images/banner/contact_ukindu.jpg"); }
-body.uk-home .safari-page .safari-hero { --hero-image: url("../images/banner/tanzania_safari_from_zanzibar.jpg"); }
+body.uk-home .safari-page .safari-hero { --hero-image: url("../images/banner/tanzania_safari.jpg"); }
 body.zanzibar-halfday-listing .zanzibar-tour-hero { --hero-image: url("../images/banner/zanzibar_halfday.jpg"); }
 body.zanzibar-fullday-listing .zanzibar-tour-hero { --hero-image: url("../images/banner/zanzibar_fullday.jpg"); }
 

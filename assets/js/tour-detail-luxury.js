@@ -15,11 +15,12 @@
   function show(idx) {
     current = (idx + triggers.length) % triggers.length;
     var el = triggers[current];
-    var h1 = document.querySelector(".td-hero h1");
-    var tourName = h1 ? h1.textContent.trim() : "";
     lbImg.src = el.getAttribute("data-td-photo");
-    lbImg.alt = tourName || "Tour photo";
-    lbCap.textContent = (tourName ? tourName + "  \u2022  " : "") + "Photo " + (current + 1) + " of " + triggers.length;
+    lbImg.alt = "Tour photo";
+    if (lbCap) {
+      lbCap.textContent = "";
+      lbCap.style.display = "none";
+    }
   }
 
   function open(idx) {
