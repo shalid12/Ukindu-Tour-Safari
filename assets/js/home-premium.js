@@ -1,23 +1,52 @@
-/* Ukindu Tour & Safari — Premium homepage interactions (vanilla JS, no dependencies) */
+/* ==========================================================================
+   UKINDU TOUR & SAFARI — LUXURY HOMEPAGE INTERACTIONS
+   Sticky Glassmorphism Navbar, AOS Init, Count-Up Stats, Tour Filters,
+   Testimonials Swipe Slider, Lightbox, Cinema Reel, Quote Modal & Back-To-Top
+   ========================================================================== */
 (function () {
   "use strict";
 
-  var doc = document.documentElement;
-  doc.classList.remove("no-js");
+  document.documentElement.classList.remove("no-js");
 
-  var WA_NUMBER = "255712868079"; // Company WhatsApp number (international format, digits only)
+  var WA_NUMBER = "255712868079";
   var EMAIL = "info@ukindutour.co.tz";
 
-  /* ---------- Sticky header ---------- */
-  var header = document.querySelector(".site-header");
-  var onScroll = function () {
-    if (!header) return;
-    header.classList.toggle("is-scrolled", window.scrollY > 40);
-  };
+  /* ---------- 1. Initialize AOS (Animate On Scroll) ---------- */
+  if (window.AOS) {
+    window.AOS.init({
+      duration: 750,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 60
+    });
+  }
+
+  /* ---------- 2. Sticky Glassmorphism Navbar & Back-To-Top ---------- */
+  var header = document.getElementById("siteHeader") || document.querySelector(".site-header");
+  var backToTop = document.getElementById("backToTop");
+  var parallaxEl = document.querySelector("[data-parallax]");
+  var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    if (header) header.classList.toggle("is-scrolled", y > 40);
+    if (backToTop) backToTop.classList.toggle("is-visible", y > 420);
+
+    if (parallaxEl && !prefersReducedMotion && y < window.innerHeight * 1.2) {
+      var speed = parseFloat(parallaxEl.getAttribute("data-parallax")) || 0.2;
+      parallaxEl.style.transform = "translate3d(0, " + (y * speed).toFixed(1) + "px, 0)";
+    }
+  }
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* ---------- Desktop dropdowns (keyboard / touch) ---------- */
+  if (backToTop) {
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* ---------- 3. Desktop Dropdowns & Mobile Drawer ---------- */
   document.querySelectorAll(".main-nav .nav-toggle").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
@@ -26,6 +55,7 @@
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
   });
+
   document.addEventListener("click", function (e) {
     document.querySelectorAll(".main-nav li.is-open").forEach(function (li) {
       if (!li.contains(e.target)) {
@@ -36,32 +66,28 @@
     });
   });
 
-  /* ---------- Mobile drawer ---------- */
   var body = document.body;
-  var openDrawer = function () {
+  var drawer = document.getElementById("drawer");
+  function openDrawer() {
     body.classList.add("drawer-open");
-    var d = document.getElementById("drawer");
-    if (d) {
-      d.setAttribute("aria-hidden", "false");
-      var f = d.querySelector("button, a");
-      if (f) f.focus();
+    if (drawer) {
+      drawer.setAttribute("aria-hidden", "false");
+      var first = drawer.querySelector("button, a");
+      if (first) first.focus();
     }
-  };
-  var closeDrawer = function () {
+  }
+  function closeDrawer() {
     body.classList.remove("drawer-open");
-    var d = document.getElementById("drawer");
-    if (d) d.setAttribute("aria-hidden", "true");
-  };
+    if (drawer) drawer.setAttribute("aria-hidden", "true");
+  }
+
   document.querySelectorAll("[data-drawer-open]").forEach(function (b) {
     b.addEventListener("click", openDrawer);
   });
   document.querySelectorAll("[data-drawer-close]").forEach(function (b) {
     b.addEventListener("click", closeDrawer);
   });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeDrawer();
-  });
-  document.querySelectorAll('.drawer a[href^="#"]').forEach(function (a) {
+  document.querySelectorAll(".drawer a").forEach(function (a) {
     a.addEventListener("click", closeDrawer);
   });
   document.querySelectorAll(".drawer .sub-toggle").forEach(function (btn) {
@@ -71,298 +97,470 @@
     });
   });
 
-  /* ---------- FAQ accordion ---------- */
-  document.querySelectorAll(".faq-q").forEach(function (q) {
-    q.addEventListener("click", function () {
-      var item = q.closest(".faq-item");
-      var open = item.classList.toggle("is-open");
-      q.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-  });
+  /* ---------- 4. Animated Statistics Count-Up ---------- */
+  var counters = document.querySelectorAll(".counter[data-target]");
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute("data-target"), 10) || 0;
+    var duration = 1600;
+    var start = performance.now();
 
-  /* ---------- Reveal on scroll ---------- */
-  var reveals = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) {
-            en.target.classList.add("is-visible");
-            io.unobserve(en.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
-    );
-    reveals.forEach(function (el) {
-      io.observe(el);
-    });
-  } else {
-    reveals.forEach(function (el) {
-      el.classList.add("is-visible");
-    });
+    function tick(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = target.toLocaleString();
+      }
+    }
+    requestAnimationFrame(tick);
   }
 
-  /* ---------- Subtle hero parallax ---------- */
-  var heroMedia = document.querySelector(".hero-media");
-  var reduce =
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* ---------- Mobile and tablet card carousels ---------- */
-  var carouselMedia = window.matchMedia("(max-width: 1023px)");
-  var carouselTracks = document.querySelectorAll(
-    ".discover-grid.swipe, .tour-grid.swipe, .more-grid.swipe, .reviews-track.swipe, .guide-grid.swipe",
-  );
-  var carousels = [];
-
-  carouselTracks.forEach(function (track) {
-    var controls = track.nextElementSibling;
-    if (!controls || !controls.classList.contains("carousel-controls")) return;
-
-    var cards = Array.prototype.slice.call(track.children);
-    var previous = controls.querySelector("[data-carousel-prev]");
-    var next = controls.querySelector("[data-carousel-next]");
-    var timer = null;
-    var paused = false;
-    var inView = !("IntersectionObserver" in window);
-    var styles = window.getComputedStyle(track);
-    var inset =
-      track.clientLeft + (parseFloat(styles.paddingLeft) || 0);
-
-    track.setAttribute("role", "region");
-    track.setAttribute("tabindex", "0");
-    track.setAttribute("aria-label", controls.getAttribute("aria-label"));
-
-    var currentIndex = function () {
-      var edge = track.getBoundingClientRect().left + inset;
-      var closest = 0;
-      var distance = Infinity;
-      cards.forEach(function (card, index) {
-        var nextDistance = Math.abs(card.getBoundingClientRect().left - edge);
-        if (nextDistance < distance) {
-          closest = index;
-          distance = nextDistance;
+  if (counters.length && "IntersectionObserver" in window) {
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
         }
       });
-      return closest;
-    };
-
-    var canAutoAdvance = function () {
-      return (
-        carouselMedia.matches &&
-        !reduce &&
-        !paused &&
-        inView &&
-        document.visibilityState === "visible" &&
-        track.scrollWidth > track.clientWidth + 4
-      );
-    };
-
-    var schedule = function (delay) {
-      window.clearTimeout(timer);
-      if (!canAutoAdvance()) return;
-      timer = window.setTimeout(function () {
-        move(1, 5000);
-      }, delay || 5000);
-    };
-
-    var move = function (direction, delay) {
-      if (!cards.length) return;
-      var targetIndex =
-        (currentIndex() + direction + cards.length) % cards.length;
-      var card = cards[targetIndex];
-      var target =
-        track.scrollLeft +
-        card.getBoundingClientRect().left -
-        track.getBoundingClientRect().left -
-        inset;
-      if (track.scrollTo) {
-        track.scrollTo({
-          left: target,
-          behavior: reduce ? "auto" : "smooth",
-        });
-      } else {
-        track.scrollLeft = target;
-      }
-      schedule(delay || 6500);
-    };
-
-    if (previous) {
-      previous.addEventListener("click", function () {
-        move(-1, 6500);
-      });
-    }
-    if (next) {
-      next.addEventListener("click", function () {
-        move(1, 6500);
-      });
-    }
-
-    track.addEventListener("mouseenter", function () {
-      paused = true;
-      window.clearTimeout(timer);
-    });
-    track.addEventListener("mouseleave", function () {
-      paused = false;
-      schedule();
-    });
-    track.addEventListener("focusin", function () {
-      paused = true;
-      window.clearTimeout(timer);
-    });
-    track.addEventListener("focusout", function (event) {
-      if (!track.contains(event.relatedTarget)) {
-        paused = false;
-        schedule();
-      }
-    });
-    track.addEventListener("pointerdown", function () {
-      paused = true;
-      window.clearTimeout(timer);
-    });
-    track.addEventListener("pointerup", function () {
-      paused = false;
-      schedule(3000);
-    });
-    track.addEventListener("pointercancel", function () {
-      paused = false;
-      schedule(3000);
-    });
-
-    if ("IntersectionObserver" in window) {
-      var carouselObserver = new IntersectionObserver(
-        function (entries) {
-          inView = entries[0].isIntersecting;
-          if (inView) schedule();
-          else window.clearTimeout(timer);
-        },
-        { threshold: 0.15 },
-      );
-      carouselObserver.observe(track);
-    }
-
-    carousels.push({
-      refresh: function () {
-        paused = false;
-        schedule();
-      },
-    });
-    schedule();
-  });
-
-  var refreshCarousels = function () {
-    carousels.forEach(function (carousel) {
-      carousel.refresh();
-    });
-  };
-  if (carouselMedia.addEventListener) {
-    carouselMedia.addEventListener("change", refreshCarousels);
-  } else if (carouselMedia.addListener) {
-    carouselMedia.addListener(refreshCarousels);
-  }
-  document.addEventListener("visibilitychange", refreshCarousels);
-
-  if (heroMedia && !reduce && window.innerWidth > 1023) {
-    var ticking = false;
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () {
-          var y = Math.min(window.scrollY, window.innerHeight);
-          heroMedia.style.transform = "translate3d(0," + y * 0.18 + "px,0)";
-          ticking = false;
-        });
-      },
-      { passive: true },
-    );
+    }, { threshold: 0.35 });
+    counters.forEach(function (c) { counterObserver.observe(c); });
+  } else {
+    counters.forEach(function (c) { c.textContent = c.getAttribute("data-target"); });
   }
 
-  /* ---------- Pre-select interest from CTA links (e.g. #plan-trip with data-interest) ---------- */
-  document.querySelectorAll("[data-interest]").forEach(function (a) {
-    a.addEventListener("click", function () {
-      var val = a.getAttribute("data-interest");
-      var input = document.querySelector(
-        '.plan-form input[name="interest"][value="' + val + '"]',
-      );
-      if (input) input.checked = true;
+  /* ---------- 5. Popular Tours Category Filter ---------- */
+  var filterBtns = document.querySelectorAll(".filter-pill[data-filter]");
+  var tourCards = document.querySelectorAll(".lux-tour-card[data-category]");
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var filter = btn.getAttribute("data-filter");
+      filterBtns.forEach(function (b) { b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+
+      tourCards.forEach(function (card) {
+        var cat = card.getAttribute("data-category");
+        var show = filter === "all" || cat === filter;
+        card.classList.toggle("is-hidden", !show);
+      });
     });
   });
 
-  /* ---------- Plan My Trip form -> WhatsApp / Email ---------- */
-  var form = document.getElementById("plan-form");
-  if (form) {
-    var err = form.querySelector(".form-error");
+  /* ---------- 6. Testimonials Auto-Sliding & Swipe Slider ---------- */
+  var track = document.getElementById("testimonialsTrack");
+  var viewport = document.getElementById("testimonialsViewport");
+  var prevBtn = document.getElementById("testPrev");
+  var nextBtn = document.getElementById("testNext");
+  var dotsWrap = document.getElementById("testDots");
 
-    var collect = function () {
-      var fd = new FormData(form);
-      var interests = fd.getAll("interest");
-      var lines = [
-        "Hello Ukindu Tour & Safari, I would like to plan a trip.",
-        "",
-        "Name: " + (fd.get("name") || ""),
-        "Email: " + (fd.get("email") || ""),
-        "WhatsApp: " + (fd.get("whatsapp") || "-"),
-        "Country: " + (fd.get("country") || "-"),
-        "Travel dates: " + (fd.get("dates") || "-"),
-        "Travelers: " + (fd.get("travelers") || "-"),
-        "Interested in: " +
-          (interests.length ? interests.join(", ") : "Not sure"),
-        "Travel style: " + (fd.get("style") || "Not sure"),
-        "Estimated budget (per person): " + (fd.get("budget") || "Not sure"),
-        "",
-        "My dream trip: " + (fd.get("message") || "-"),
-      ];
-      return lines.join("\n");
-    };
+  if (track && viewport) {
+    var slides = Array.prototype.slice.call(track.children);
+    var currentIndex = 0;
+    var autoTimer = null;
 
-    var valid = function () {
-      var name = form.elements.name.value.trim();
-      var email = form.elements.email.value.trim();
-      var ok = name.length > 1 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (err) err.classList.toggle("show", !ok);
-      if (!ok) {
-        (name.length > 1 ? form.elements.email : form.elements.name).focus();
+    function getVisibleCount() {
+      if (window.innerWidth <= 767) return 1;
+      if (window.innerWidth <= 1200) return 2;
+      return 3;
+    }
+
+    function getMaxIndex() {
+      return Math.max(0, slides.length - getVisibleCount());
+    }
+
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = "";
+      var total = getMaxIndex() + 1;
+      for (var i = 0; i < total; i++) {
+        (function (idx) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "slider-dot" + (idx === currentIndex ? " is-active" : "");
+          dot.setAttribute("aria-label", "Go to testimonial " + (idx + 1));
+          dot.addEventListener("click", function () {
+            goToSlide(idx);
+            restartAuto();
+          });
+          dotsWrap.appendChild(dot);
+        })(i);
       }
-      return ok;
-    };
+    }
 
-    form.addEventListener("submit", function (e) {
+    function goToSlide(index) {
+      var max = getMaxIndex();
+      if (index > max) index = 0;
+      if (index < 0) index = max;
+      currentIndex = index;
+
+      var cardWidth = slides[0].getBoundingClientRect().width;
+      var gap = 24;
+      track.style.transform = "translate3d(-" + (currentIndex * (cardWidth + gap)) + "px, 0, 0)";
+
+      if (dotsWrap) {
+        Array.prototype.slice.call(dotsWrap.children).forEach(function (d, i) {
+          d.classList.toggle("is-active", i === currentIndex);
+        });
+      }
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(function () {
+        goToSlide(currentIndex + 1);
+      }, 5000);
+    }
+
+    function stopAuto() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function restartAuto() {
+      stopAuto();
+      startAuto();
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goToSlide(currentIndex - 1);
+        restartAuto();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goToSlide(currentIndex + 1);
+        restartAuto();
+      });
+    }
+
+    /* Touch / Swipe Support */
+    var touchStartX = 0;
+    viewport.addEventListener("touchstart", function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAuto();
+    }, { passive: true });
+
+    viewport.addEventListener("touchend", function (e) {
+      var diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 45) {
+        goToSlide(diff > 0 ? currentIndex + 1 : currentIndex - 1);
+      }
+      startAuto();
+    }, { passive: true });
+
+    viewport.addEventListener("mouseenter", stopAuto);
+    viewport.addEventListener("mouseleave", startAuto);
+
+    window.addEventListener("resize", function () {
+      buildDots();
+      goToSlide(Math.min(currentIndex, getMaxIndex()));
+    });
+
+    buildDots();
+    goToSlide(0);
+    startAuto();
+  }
+
+  /* ---------- 7. Modal Helpers ---------- */
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    body.style.overflow = "hidden";
+  }
+
+  function closeAllModals() {
+    document.querySelectorAll(".lux-modal.is-open").forEach(function (m) {
+      m.classList.remove("is-open");
+      m.setAttribute("aria-hidden", "true");
+    });
+    body.style.overflow = "";
+    stopCinemaReel();
+  }
+
+  document.querySelectorAll("[data-close-modal]").forEach(function (el) {
+    el.addEventListener("click", closeAllModals);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeDrawer();
+      closeAllModals();
+    }
+  });
+
+  /* ---------- 8. Instagram Gallery Lightbox ---------- */
+  var lightboxModal = document.getElementById("lightboxModal");
+  var lbImage = document.getElementById("lbImage");
+  var lbCaption = document.getElementById("lbCaption");
+  var lbPrev = document.getElementById("lbPrev");
+  var lbNext = document.getElementById("lbNext");
+  var galleryBtns = Array.prototype.slice.call(document.querySelectorAll("[data-lightbox-src]"));
+  var lbIndex = 0;
+
+  function showLightboxImage(idx) {
+    if (!galleryBtns.length) return;
+    lbIndex = (idx + galleryBtns.length) % galleryBtns.length;
+    var btn = galleryBtns[lbIndex];
+    lbImage.src = btn.getAttribute("data-lightbox-src");
+    lbImage.alt = btn.getAttribute("data-lightbox-caption") || "Zanzibar gallery photo";
+    lbCaption.textContent = btn.getAttribute("data-lightbox-caption") || "";
+  }
+
+  galleryBtns.forEach(function (btn, index) {
+    btn.addEventListener("click", function () {
+      showLightboxImage(index);
+      openModal(lightboxModal);
+    });
+  });
+
+  if (lbPrev) lbPrev.addEventListener("click", function () { showLightboxImage(lbIndex - 1); });
+  if (lbNext) lbNext.addEventListener("click", function () { showLightboxImage(lbIndex + 1); });
+
+  document.addEventListener("keydown", function (e) {
+    if (!lightboxModal || !lightboxModal.classList.contains("is-open")) return;
+    if (e.key === "ArrowLeft") showLightboxImage(lbIndex - 1);
+    if (e.key === "ArrowRight") showLightboxImage(lbIndex + 1);
+  });
+
+  /* ---------- 9. Cinema Video Showcase Modal ---------- */
+  var videoModal = document.getElementById("videoModal");
+  var openVideoTriggers = document.querySelectorAll("[data-open-video], #openVideoModal");
+  var cinemaSlides = Array.prototype.slice.call(document.querySelectorAll(".cinema-slide"));
+  var cinemaTitle = document.getElementById("cinemaTitle");
+  var cinemaSub = document.getElementById("cinemaSub");
+  var cinemaBar = document.getElementById("cinemaBar");
+  var cinemaTimer = null;
+  var cinemaIdx = 0;
+  var cinemaTick = 0;
+
+  function showCinemaSlide(idx) {
+    cinemaIdx = idx % cinemaSlides.length;
+    cinemaSlides.forEach(function (s, i) {
+      s.classList.toggle("is-active", i === cinemaIdx);
+    });
+    var active = cinemaSlides[cinemaIdx];
+    if (active && cinemaTitle && cinemaSub) {
+      cinemaTitle.textContent = active.getAttribute("data-title") || "";
+      cinemaSub.textContent = active.getAttribute("data-sub") || "";
+    }
+  }
+
+  function startCinemaReel() {
+    stopCinemaReel();
+    cinemaTick = 0;
+    showCinemaSlide(0);
+    cinemaTimer = setInterval(function () {
+      cinemaTick += 100;
+      var totalDuration = 4000;
+      var pct = Math.min((cinemaTick / totalDuration) * 100, 100);
+      if (cinemaBar) cinemaBar.style.width = pct + "%";
+      if (cinemaTick >= totalDuration) {
+        cinemaTick = 0;
+        showCinemaSlide(cinemaIdx + 1);
+      }
+    }, 100);
+  }
+
+  function stopCinemaReel() {
+    if (cinemaTimer) {
+      clearInterval(cinemaTimer);
+      cinemaTimer = null;
+    }
+    if (cinemaBar) cinemaBar.style.width = "0%";
+  }
+
+  if (openVideoTriggers.length && videoModal) {
+    openVideoTriggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        openModal(videoModal);
+        startCinemaReel();
+      });
+    });
+  }
+
+  /* ---------- 10. Request Quote Modal ---------- */
+  var quoteModal = document.getElementById("quoteModal");
+  var quoteForm = document.getElementById("quoteForm");
+  var qError = document.getElementById("qError");
+  var sendQuoteEmail = document.getElementById("sendQuoteEmail");
+
+  document.querySelectorAll("[data-open-quote]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      closeDrawer();
+      openModal(quoteModal);
+    });
+  });
+
+  function buildQuoteMessage() {
+    var name = (document.getElementById("q-name").value || "").trim();
+    var email = (document.getElementById("q-email").value || "").trim();
+    var dates = (document.getElementById("q-dates").value || "").trim() || "Flexible";
+    var guests = document.getElementById("q-guests").value || "2";
+    var interest = document.getElementById("q-interest").value || "Zanzibar Island Tours";
+    var notes = (document.getElementById("q-notes").value || "").trim();
+
+    if (!name || !email || email.indexOf("@") === -1) {
+      if (qError) qError.textContent = "Please enter your name and a valid email address.";
+      return null;
+    }
+    if (qError) qError.textContent = "";
+
+    return "Hello Ukindu Tour & Safari!\n" +
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Travel Dates: " + dates + "\n" +
+      "Travelers: " + guests + "\n" +
+      "Interest: " + interest +
+      (notes ? "\nNotes: " + notes : "");
+  }
+
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!valid()) return;
-      var url =
-        "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(collect());
-      if (window.dataLayer)
-        window.dataLayer.push({
-          event: "plan_trip_submit",
-          method: "whatsapp",
-        });
-      window.open(url, "_blank", "noopener");
+      var msg = buildQuoteMessage();
+      if (!msg) return;
+      window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+      closeAllModals();
     });
-
-    var emailBtn = document.getElementById("plan-email");
-    if (emailBtn) {
-      emailBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        if (!valid()) return;
-        if (window.dataLayer)
-          window.dataLayer.push({ event: "plan_trip_submit", method: "email" });
-        window.location.href =
-          "mailto:" +
-          EMAIL +
-          "?subject=" +
-          encodeURIComponent(
-            "Trip enquiry - " + form.elements.name.value.trim(),
-          ) +
-          "&body=" +
-          encodeURIComponent(collect());
-      });
-    }
   }
 
-  /* ---------- Footer year ---------- */
-  var yr = document.getElementById("year");
-  if (yr) yr.textContent = new Date().getFullYear();
+  if (sendQuoteEmail) {
+    sendQuoteEmail.addEventListener("click", function () {
+      var msg = buildQuoteMessage();
+      if (!msg) return;
+      window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Zanzibar Tour Quote Request") + "&body=" + encodeURIComponent(msg);
+      closeAllModals();
+    });
+  }
+
+  /* ---------- 11. Legal Modals (Privacy Policy / Terms) ---------- */
+  var legalModal = document.getElementById("legalModal");
+  var legalTitle = document.getElementById("legalModalTitle");
+  var legalBody = document.getElementById("legalModalBody");
+
+  var legalContent = {
+    privacy: {
+      title: "Privacy Policy",
+      html: "<p>Ukindu Tour &amp; Safari respects your privacy and protects your personal information.</p>" +
+        "<h4>Information We Collect</h4><p>We only collect details you voluntarily share when requesting a tour quote or transfer booking—such as your name, email, WhatsApp number, hotel pickup location, and travel dates.</p>" +
+        "<h4>How We Use It</h4><p>Your information is used solely to coordinate your Zanzibar tours, Tanzania safaris, and airport transfers. We never sell or share your personal data with third-party marketers.</p>"
+    },
+    terms: {
+      title: "Terms & Conditions",
+      html: "<p>All private Zanzibar tours, transfers, and Tanzania safaris are operated by Ukindu Tour &amp; Safari based in Nungwi, Zanzibar.</p>" +
+        "<h4>Bookings &amp; Flexibility</h4><p>Tour reservations can be confirmed via WhatsApp or email. Free date adjustments are available when requested at least 24 hours in advance, subject to park or boat availability.</p>" +
+        "<h4>Weather &amp; Marine Safety</h4><p>For ocean excursions such as Mnemba Atoll and Safari Blue, routes and timing may be adjusted by our licensed captains to ensure guest safety and comfort.</p>"
+    }
+  };
+
+  document.querySelectorAll("[data-legal-modal]").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      var key = link.getAttribute("data-legal-modal");
+      var data = legalContent[key];
+      if (!data) return;
+      legalTitle.textContent = data.title;
+      legalBody.innerHTML = data.html;
+      openModal(legalModal);
+    });
+  });
+
+  /* ---------- 12. Hero Featured Tour Slider (3 Half Day, 3 Full Day, 3 Safari) ---------- */
+  var hsTrack = document.getElementById("hsTrack");
+  var hsViewport = document.getElementById("hsViewport");
+  var hsPrev = document.getElementById("hsPrev");
+  var hsNext = document.getElementById("hsNext");
+  var hsCount = document.getElementById("hsCount");
+  var hsTabs = document.querySelectorAll(".hs-tab[data-hs-group]");
+
+  if (hsTrack && hsViewport) {
+    var hsSlides = Array.prototype.slice.call(hsTrack.children);
+    var hsIndex = 0;
+    var hsTimer = null;
+
+    function updateHeroSlider(idx) {
+      hsIndex = (idx + hsSlides.length) % hsSlides.length;
+      hsTrack.style.transform = "translate3d(-" + (hsIndex * 100) + "%, 0, 0)";
+      if (hsCount) hsCount.textContent = (hsIndex + 1) + " / " + hsSlides.length;
+
+      var activeGroup = hsSlides[hsIndex].getAttribute("data-group");
+      hsTabs.forEach(function (tab) {
+        tab.classList.toggle("is-active", tab.getAttribute("data-hs-group") === activeGroup);
+      });
+    }
+
+    function startHsAuto() {
+      stopHsAuto();
+      hsTimer = setInterval(function () {
+        updateHeroSlider(hsIndex + 1);
+      }, 4500);
+    }
+
+    function stopHsAuto() {
+      if (hsTimer) {
+        clearInterval(hsTimer);
+        hsTimer = null;
+      }
+    }
+
+    hsTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var group = tab.getAttribute("data-hs-group");
+        var firstIdx = hsSlides.findIndex(function (s) {
+          return s.getAttribute("data-group") === group;
+        });
+        if (firstIdx !== -1) {
+          updateHeroSlider(firstIdx);
+          startHsAuto();
+        }
+      });
+    });
+
+    if (hsPrev) {
+      hsPrev.addEventListener("click", function () {
+        updateHeroSlider(hsIndex - 1);
+        startHsAuto();
+      });
+    }
+    if (hsNext) {
+      hsNext.addEventListener("click", function () {
+        updateHeroSlider(hsIndex + 1);
+        startHsAuto();
+      });
+    }
+
+    var hsStartX = 0;
+    hsViewport.addEventListener("touchstart", function (e) {
+      hsStartX = e.changedTouches[0].screenX;
+      stopHsAuto();
+    }, { passive: true });
+
+    hsViewport.addEventListener("touchend", function (e) {
+      var diff = hsStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 40) {
+        updateHeroSlider(diff > 0 ? hsIndex + 1 : hsIndex - 1);
+      }
+      startHsAuto();
+    }, { passive: true });
+
+    var hsWrap = document.getElementById("heroTourSlider");
+    if (hsWrap) {
+      hsWrap.addEventListener("mouseenter", stopHsAuto);
+      hsWrap.addEventListener("mouseleave", startHsAuto);
+    }
+
+    updateHeroSlider(0);
+    startHsAuto();
+  }
+
+  /* ---------- 13. Dynamic Copyright Year ---------- */
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();

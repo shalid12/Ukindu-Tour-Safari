@@ -57,20 +57,21 @@
         gtag('config', 'AW-18415240195');
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap">
-    <link rel="stylesheet" href="assets/css/home-premium.css"><link rel="stylesheet" href="assets/css/interior-pages.css">
-    <link rel="stylesheet" href="assets/css/site-footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="assets/css/site-header.css">
+    <link rel="stylesheet" href="assets/css/home-premium.css">
+    <link rel="stylesheet" href="assets/css/faqs-luxury.css">
+    <link rel="stylesheet" href="assets/css/site-footer.css">
 </head>
 
-<body class="uk-home inner-page">
+<body class="uk-home faq-luxury">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK9LJBB4" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
+    <header class="site-header" id="siteHeader">
         <div class="container header-inner">
             <a href="/index" class="brand" aria-label="Ukindu Tour &amp; Safari home">
                 <img src="assets/images/logo/ukindu_logo_160.png" width="56" height="57" alt="Ukindu Tour &amp; Safari logo">
@@ -80,22 +81,26 @@
                 <ul>
                     <li><a href="/index">Home</a></li>
                     <li>
-                        <button class="nav-toggle" type="button" aria-expanded="false" aria-haspopup="true">Zanzibar <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i></button>
+                        <button class="nav-toggle" type="button" aria-expanded="false" aria-haspopup="true">Tours <i class="fa-solid fa-chevron-down caret" aria-hidden="true"></i></button>
                         <div class="dropdown">
                             <a href="/zanzibar-halfday-tours">Zanzibar Half-Day Tours</a>
                             <a href="/zanzibar-fullday-tours">Zanzibar Full-Day Tours</a>
-                            <a href="/transfer">Airport &amp; Ferry Transfers</a>
                         </div>
                     </li>
-                    <li><a href="/tanzania-safari">Safaris</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/faqs">FAQs</a></li>
+                    <li><a href="/tanzania-safari">Safari</a></li>
+                    <li><a href="/transfer">Airport Transfers</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/faqs" aria-current="page">FAQs</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a class="btn btn--gold btn--sm header-cta" href="/contact#contact-form">Plan My Trip</a>
-                <a class="icon-btn header-wa" href="https://wa.me/255712868079" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a class="btn btn--wa btn--sm header-cta"
+                    href="https://wa.me/255712868079?text=Hello%20Ukindu%20Tour%20%26%20Safari!%20I%20have%20a%20question%20about%20planning%20my%20trip."
+                    target="_blank" rel="noopener">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                </a>
+                <a class="icon-btn header-mail" href="mailto:info@ukindutour.co.tz" title="Email info@ukindutour.co.tz" aria-label="Email info@ukindutour.co.tz"><i class="fa-regular fa-envelope-open" aria-hidden="true"></i></a>
                 <button class="icon-btn menu-open" type="button" data-drawer-open aria-expanded="false" aria-label="Open menu" aria-controls="drawer"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
@@ -117,7 +122,7 @@
                     </div>
                 </li>
                 <li><a href="/tanzania-safari">Safaris</a></li>
-                <li><a href="/transfer">Airport &amp; Ferry Transfers</a></li>
+                <li><a href="/transfer">Airport Transfers</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/faqs">FAQs</a></li>
                 <li><a href="/contact">Contact Us</a></li>
@@ -135,12 +140,31 @@
         </div>
     </aside>
 
-    <main id="main" id='main' class='inner-main faq-page'>
-    <section class='inner-hero faq-hero'>
-        <div class='container faq-hero-content'>
-            <span class='eyebrow'>Travel information</span>
-            <h1>Questions? <em>We&rsquo;re here to help.</em></h1>
-            <p>Practical answers for planning a Tanzania safari, Zanzibar holiday or tailor-made journey.</p>
+    <main id="main" class="inner-main faq-page">
+    <section class="faq-hero-lux">
+        <div class="container">
+            <div class="faq-hero-inner">
+                <span class="faq-hero-eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Travel Information &amp; Help Center</span>
+                <h1>Questions? <em>We&rsquo;re here to help.</em></h1>
+                <p>Practical answers for planning private Zanzibar tours, snorkeling adventures, airport transfers, and tailor-made Tanzania safaris.</p>
+                <div class="lux-hero__actions" style="margin-bottom: 24px;">
+                    <a class="lux-btn lux-btn--primary" href="#faq-results">
+                        <span>Browse All FAQs</span>
+                        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                    </a>
+                    <a class="lux-btn lux-btn--wa"
+                        href="https://wa.me/255712868079?text=Hello%20Ukindu%20Tour%20%26%20Safari!%20I%20have%20a%20question%20about%20planning%20my%20trip."
+                        target="_blank" rel="noopener">
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        <span>Ask on WhatsApp</span>
+                    </a>
+                </div>
+                <div class="lux-hero__trust">
+                    <div class="trust-pill"><i class="fa-solid fa-bolt"></i> 55+ Travel Answers</div>
+                    <div class="trust-pill"><i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Help</div>
+                    <div class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Local Nungwi Experts</div>
+                </div>
+            </div>
         </div>
     </section>
     <section class='faq-help-strip' aria-labelledby='faq-help-title'><div class='container'><div class='faq-strip-heading'><span class='eyebrow'>Find your topic</span><h2 id='faq-help-title'>How can we help?</h2></div><nav class="faq-category-nav" aria-label="FAQ categories"><div class="faq-category-track">
@@ -170,7 +194,7 @@
 <article class='faq-item' data-faq-item data-search='great migration serengeti when where crossing'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-14'><span>When and where is the Great Migration?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-14' hidden><div class='faq-answer-inner'><p>The migration moves through the Serengeti ecosystem through the year, following seasonal rainfall and grazing. Its location and river-crossing activity vary. Share your dates with us so we can discuss which areas may suit your trip.</p></div></div></article>
 <article class='faq-item' data-faq-item data-search='birdwatching birdlife photography wildlife interests'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-15'><span>Can I request birdwatching or photography time?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-15' hidden><div class='faq-answer-inner'><p>Tell us about these interests when you enquire. We can discuss how the route and time available may suit them, but wildlife conditions and sightings cannot be guaranteed.</p></div></div></article>
 <article class='faq-item' data-faq-item data-search='children kids family age safari'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-16'><span>Can children join a safari?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-16' hidden><div class='faq-answer-inner'><p>Age limits and family arrangements can vary by accommodation, activity and route. Tell us the children&rsquo;s ages and we will confirm what is suitable for the specific itinerary.</p></div></div></article>
-<article class='faq-item' data-faq-item data-search='vehicle car 4x4 safari vehicle seating'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-17'><span>What type of safari vehicle is used?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-17' hidden><div class='faq-answer-inner'><p>The specific vehicle and seating arrangement are not listed consistently across all itineraries. <strong>[ADD THE COMPANY&rsquo;S SAFARI VEHICLE DETAILS HERE]</strong> Ask us to confirm the vehicle for your chosen trip before booking.</p></div></div></article>
+<article class='faq-item' data-faq-item data-search='vehicle car 4x4 safari vehicle seating'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-17'><span>What type of safari vehicle is used?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-17' hidden><div class='faq-answer-inner'><p>Our Tanzania safaris use well-maintained 4x4 Toyota Land Cruisers equipped with pop-up game-viewing roofs, guaranteed window seats, charging ports, and a cooler box for drinking water.</p></div></div></article>
 <article class='faq-item' data-faq-item data-search='animal guaranteed sightings wildlife'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-18'><span>What if I do not see a particular animal?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-18' hidden><div class='faq-answer-inner'><p>Wild animals move freely, and sightings depend on many natural factors. Your guide can help look for wildlife, but specific animal sightings cannot be promised.</p></div></div></article>
 </div></section>
 <section class='faq-section' id='zanzibar-faq' data-faq-section><div class='faq-section-heading'><div><span class='eyebrow'>On the island</span><h2>Zanzibar travel questions</h2></div><p>Plan island excursions, beach time and cultural experiences.</p></div><div class='faq-items'><article class='faq-item' data-faq-item data-search='zanzibar best time weather season'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-19'><span>When is a good time to visit Zanzibar?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-19' hidden><div class='faq-answer-inner'><p>Zanzibar is a year-round island destination, and the best time depends on your plans and sea conditions. If you have particular beach or marine activities in mind, ask us about conditions for your dates.</p></div></div></article>
@@ -183,9 +207,9 @@
 </div></section>
 <section class='faq-section' id='booking-pricing' data-faq-section><div class='faq-section-heading'><div><span class='eyebrow'>Quotes & arrangements</span><h2>Booking &amp; pricing</h2></div><p>Understand how to request a quote and where trip-specific terms are confirmed.</p></div><div class='faq-items'><article class='faq-item' data-faq-item data-search='quote request enquire trip inquiry contact'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-26'><span>How do I request a trip quote?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-26' hidden><div class='faq-answer-inner'><p>Send your preferred dates, group size, destinations and travel style using our <a href='/contact#contact-form'>trip enquiry form</a> or <a href='https://wa.me/255712868079' target='_blank' rel='noopener'>WhatsApp</a>. We can then discuss suitable options.</p></div></div></article>
 <article class='faq-item' data-faq-item data-search='enquiry next steps quote response process'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-27'><span>What happens after I send a trip enquiry?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-27' hidden><div class='faq-answer-inner'><p>Share your dates, group size and trip ideas through the enquiry form. Our team can discuss suitable options and clarify the proposed itinerary and terms with you before you decide whether to proceed.</p></div></div></article>
-<article class='faq-item' data-faq-item data-search='change amend itinerary booking'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-28'><span>Can I change my itinerary after booking?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-28' hidden><div class='faq-answer-inner'><p><strong>[ADD THE COMPANY&rsquo;S ITINERARY CHANGE POLICY HERE]</strong> Contact us as soon as possible if you need a change so we can explain the options for your booking.</p></div></div></article>
-<article class='faq-item' data-faq-item data-search='payment methods pay deposit'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-29'><span>What payment methods do you accept?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-29' hidden><div class='faq-answer-inner'><p><strong>[ADD THE COMPANY&rsquo;S ACCEPTED PAYMENT METHODS HERE]</strong> We will confirm the current payment instructions directly before you make a payment.</p></div></div></article>
-<article class='faq-item' data-faq-item data-search='cancel cancellation refund policy'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-30'><span>What is your cancellation policy?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-30' hidden><div class='faq-answer-inner'><p><strong>[ADD THE COMPANY&rsquo;S CANCELLATION AND REFUND POLICY HERE]</strong> Ask us for the written terms that apply to your specific trip before confirming.</p></div></div></article>
+<article class='faq-item' data-faq-item data-search='change amend itinerary booking'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-28'><span>Can I change my itinerary after booking?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-28' hidden><div class='faq-answer-inner'><p>Yes—whenever possible we offer flexible date and itinerary adjustments. Simply message us on WhatsApp at least 24 hours in advance so we can coordinate updated boats, vehicles, or lodge availability.</p></div></div></article>
+<article class='faq-item' data-faq-item data-search='payment methods pay deposit'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-29'><span>What payment methods do you accept?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-29' hidden><div class='faq-answer-inner'><p>We accept major credit/debit cards, bank transfers, and cash (USD, EUR, or TZS). Exact deposit and balance options are confirmed clearly in writing with your quote.</p></div></div></article>
+<article class='faq-item' data-faq-item data-search='cancel cancellation refund policy'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-30'><span>What is your cancellation policy?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-30' hidden><div class='faq-answer-inner'><p>For Zanzibar day tours and transfers, free cancellation or rescheduling is available up to 24 hours before pickup. Multi-day Tanzania safaris follow lodge and domestic flight terms, which we share transparently in writing before booking.</p></div></div></article>
 <article class='faq-item' data-faq-item data-search='adjust package change custom existing itinerary'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-31'><span>Can I adjust an existing safari package?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-31' hidden><div class='faq-answer-inner'><p>We can discuss possible changes to an itinerary, including dates, route and interests. Any changes depend on availability and will be confirmed in your updated quote.</p></div></div></article>
 </div></section>
 <section class='faq-section' id='travel-planning' data-faq-section><div class='faq-section-heading'><div><span class='eyebrow'>Before departure</span><h2>Travel planning</h2></div><p>Practical preparation for your Tanzania and Zanzibar trip.</p></div><div class='faq-items'><article class='faq-item' data-faq-item data-search='insurance travel cover'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-32'><span>Do I need travel insurance?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-32' hidden><div class='faq-answer-inner'><p>We recommend arranging suitable travel insurance for your trip. Check the policy wording, coverage limits and activities covered with your insurer before travel.</p></div></div></article>
@@ -216,70 +240,151 @@
 <article class='faq-item' data-faq-item data-search='zanzibar safety custom dress culture'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-54'><span>Is Zanzibar safe and are there local customs to know?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-54' hidden><div class='faq-answer-inner'><p>As in any destination, stay aware of your surroundings and follow local guidance. Zanzibar has a strong cultural and religious heritage; modest dress away from beaches and respect for local customs are appreciated.</p></div></div></article>
 <article class='faq-item' data-faq-item data-search='children kids safety family'><h3><button class='faq-question' type='button' aria-expanded='false' aria-controls='faq-answer-55'><span>Can I travel with children?</span><span class='faq-icon' aria-hidden='true'></span></button></h3><div class='faq-answer' id='faq-answer-55' hidden><div class='faq-answer-inner'><p>Family travel depends on the child&rsquo;s age, your chosen activities and each accommodation&rsquo;s rules. Share the children&rsquo;s ages with us so we can discuss a suitable itinerary.</p></div></div></article>
 </div></section>
+<div id="faqEmptyState" class="faq-empty" hidden>
+    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    <h3>No matching questions found</h3>
+    <p>Try another keyword or message our Nungwi specialists directly on WhatsApp.</p>
+    <button id="faqResetSearch" class="lux-btn lux-btn--primary lux-btn--sm" type="button">Show All Questions</button>
+</div>
 </div></section>
-    <section class='inner-section inner-section--dark faq-custom-cta'><div class='container faq-custom-panel'><div><span class='eyebrow'>Can&rsquo;t find your perfect trip?</span><h2>Your journey doesn&rsquo;t have to fit a template.</h2><p>Tell us where you want to go, how you want to travel and what you hope to experience. We&rsquo;ll help you shape a Tanzania journey around your plans.</p></div><div class='faq-cta-actions'><a class='inner-action' href='/contact#contact-form'>Create My Custom Trip <i class='fa-solid fa-arrow-right' aria-hidden='true'></i></a><a class='faq-secondary-link' href='https://wa.me/255712868079' target='_blank' rel='noopener'>Talk to our team <i class='fa-solid fa-arrow-right' aria-hidden='true'></i></a></div></div></section>
-    <section class='inner-section faq-contact-section'><div class='container faq-contact-grid'><div class='faq-contact-photo'><img src='assets/images/package/4_days_tanzania_safari_package_02.jpg' alt='Zebras on a Tanzania safari route' loading='lazy'></div><div class='faq-contact-copy'><span class='eyebrow'>Still have a question?</span><h2>Our local team can help you plan.</h2><p>Send us your dates and questions. We&rsquo;ll help you understand the options for your safari, Zanzibar stay or transfer.</p><div class='faq-contact-links'><a href='https://wa.me/255712868079' target='_blank' rel='noopener'><i class='fa-brands fa-whatsapp' aria-hidden='true'></i> Ask on WhatsApp</a><a href='mailto:info@ukindutour.co.tz'><i class='fa-regular fa-envelope' aria-hidden='true'></i> Email us</a><a href='tel:+255712868079'><i class='fa-solid fa-phone' aria-hidden='true'></i> +255 712 868 079</a></div></div></div></section>
-    <section class='faq-final-cta' style="--hero-image:url('assets/images/banner/home_hero_1920.jpg')"><div class='container'><span class='eyebrow'>Your Tanzania journey starts here</span><h2>Ready to start planning?</h2><p>From wildlife journeys to Zanzibar escapes, tell us what you&rsquo;re dreaming of and we&rsquo;ll help you take the next step.</p><div class='faq-cta-actions'><a class='inner-action' href='/contact#contact-form'>Plan My Tanzania Trip <i class='fa-solid fa-arrow-right' aria-hidden='true'></i></a><a class='faq-secondary-link' href='/tanzania-safari'>Explore our tours <i class='fa-solid fa-arrow-right' aria-hidden='true'></i></a></div></div></section>
+    <section class="faq-support-strip" aria-label="Direct support channels">
+        <div class="container">
+            <div class="faq-support-grid">
+                <a class="faq-support-card faq-support-card--wa" href="https://wa.me/255712868079?text=Hello%20Ukindu%20Tour%20%26%20Safari!%20I%20have%20a%20travel%20question." target="_blank" rel="noopener">
+                    <span class="sup-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+                    <div>
+                        <strong>Ask on WhatsApp</strong>
+                        <span>+255 712 868 079 &middot; Replies in ~15 min</span>
+                    </div>
+                </a>
+                <a class="faq-support-card" href="mailto:info@ukindutour.co.tz">
+                    <span class="sup-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span>
+                    <div>
+                        <strong>Email Our Planners</strong>
+                        <span>info@ukindutour.co.tz</span>
+                    </div>
+                </a>
+                <a class="faq-support-card" href="tel:+255712868079">
+                    <span class="sup-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                    <div>
+                        <strong>Call Nungwi Office</strong>
+                        <span>+255 712 868 079 &middot; Daily Support</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-cta-wrap" aria-labelledby="faq-final-cta-title">
+        <div class="container">
+            <div class="faq-cta-banner">
+                <div class="faq-cta-content">
+                    <span class="lux-cta__eyebrow">
+                        <span class="pulse-dot" aria-hidden="true"></span>
+                        Personal Local Concierge
+                    </span>
+                    <h2 id="faq-final-cta-title">Still Have a Question? <span class="text-gradient">Let&rsquo;s Plan Together.</span></h2>
+                    <p>Share your travel dates, group size, and dream Zanzibar or Tanzania safari experiences. Our Nungwi team will reply with clear, tailored recommendations.</p>
+                    <div class="lux-cta__actions">
+                        <a class="lux-btn lux-btn--wa lux-btn--lg"
+                            href="https://wa.me/255712868079?text=Hello%20Ukindu%20Tour%20%26%20Safari!%20I%27d%20love%20to%20plan%20my%20Zanzibar%20%26%20Tanzania%20trip."
+                            target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                        <a class="lux-btn lux-btn--glass lux-btn--lg" href="/contact#contact-form">
+                            <span>Request Custom Quote</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="lux-cta__meta">
+                        <span><i class="fa-solid fa-bolt"></i> Replies in under 15 min</span>
+                        <span><i class="fa-solid fa-circle-check"></i> Transparent Pricing</span>
+                        <span><i class="fa-solid fa-calendar-check"></i> Tailor-Made Itineraries</span>
+                    </div>
+                </div>
+                <div class="faq-cta-visual">
+                    <img src="assets/images/package/4_days_tanzania_safari_package_02.jpg" loading="lazy" decoding="async" alt="Zebras on a Tanzania safari route">
+                    <div class="faq-cta-shade" aria-hidden="true"></div>
+                    <div class="lux-cta__floating-card">
+                        <div class="cta-avatar">
+                            <img src="assets/images/logo/ukindu_tour_round_logo.png" loading="lazy" alt="Ukindu Concierge">
+                            <span class="cta-online-dot" aria-hidden="true"></span>
+                        </div>
+                        <div class="cta-card-info">
+                            <strong>Ukindu Local Planners</strong>
+                            <span><i class="fa-solid fa-star"></i> 4.9 Rated &middot; Nungwi, Zanzibar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
     <footer class="site-footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="/index"><img src="assets/images/logo/ukindu_logo_160.png" width="64" height="66" loading="lazy" alt="Ukindu Tour & Safari logo"></a>
-                    <p>Based in Zanzibar, we create private safaris, island tours and tailor-made journeys with personal local support.</p>
+                    <a href="/index" class="footer-brand-link"><img src="assets/images/logo/ukindu_logo_160.png" width="64" height="66" loading="lazy" alt="Ukindu Tour and Safari logo"><span class="footer-brand-title">Ukindu Tour and Safari</span></a>
+                    <p>Your local luxury travel partner in Nungwi, Zanzibar. Private island tours, snorkeling adventures, airport transfers, and bespoke Tanzania safaris.</p>
                     <div class="socials">
                         <a href="https://www.facebook.com/share/1HqPVyRzLN/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/ukindu_tours?igsh=dDk0MWZkamhjaWxt" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@ukindutour?_r=1&amp;_t=ZS-97m8GxVoYZ6" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/ukindu_tours/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@ukindutour" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                         <a href="https://maps.app.goo.gl/oLW5EkBoyWxEwP4EA?g_st=aw" target="_blank" rel="noopener" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
                     </div>
                 </div>
+
                 <div class="footer-col">
-                    <h4>Explore</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/tanzania-safari">Safaris</a></li>
-                        <li><a href="/zanzibar-halfday-tours">Zanzibar Half-Day Tours</a></li>
-                        <li><a href="/zanzibar-fullday-tours">Zanzibar Full-Day Tours</a></li>
-                        <li><a href="/tanzania-safari#safari-destinations">Destinations</a></li>
-                        <li><a href="/zanzibar-halfday-tours">Experiences</a></li>
-                        <li><a href="/contact#contact-form">Tailor-Made Trips</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>About</h4>
-                    <ul>
+                        <li><a href="/index">Home</a></li>
                         <li><a href="/about">About Us</a></li>
-                        <li><a href="/about#our-team">Our Team</a></li>
-                        <li><a href="/about">Why Travel With Us</a></li>
-                        <li><a href="https://www.google.com/search?q=Ukindu+Tour+and+Safari+Zanzibar+Google+reviews" target="_blank" rel="noopener">Reviews</a></li>
-                        <li><a href="/transfer">Transfer</a></li>
+                        <li><a href="/faqs">Travel FAQs</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/index#testimonials">Guest Reviews</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
-                    <h4>Travel Resources</h4>
+                    <h4>Tour Categories</h4>
                     <ul>
-                        <li><a href="/faqs">Travel Guide</a></li>
-                        <li><a href="/faqs">Safari FAQ</a></li>
-                        <li><a href="/stone-town-tour">Stone Town</a></li>
-                        <li><a href="/jozani-forest-walking-tour">Jozani Forest</a></li>
-                        <li><a href="/mikumi-day-trip-safari-from-zanzibar">Mikumi National Park</a></li>
-                        <li><a href="/serengeti-safari-from-zanzibar">Serengeti National Park</a></li>
+                        <li><a href="/zanzibar-halfday-tours">Half-Day Tours</a></li>
+                        <li><a href="/zanzibar-fullday-tours">Full-Day Tours</a></li>
+                        <li><a href="/tanzania-safari">Tanzania Safari</a></li>
+                        <li><a href="/transfer">Airport Transfers</a></li>
+                        <li><a href="/safari-blue-trip">Safari Blue Trip</a></li>
                     </ul>
                 </div>
-                <div class="footer-col footer-contact">
-                    <h4>Contact</h4>
+
+                <div class="footer-col">
+                    <h4>Top Destinations</h4>
                     <ul>
-                        <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/255712868079" target="_blank" rel="noopener">WhatsApp</a></li>
-                        <li><i class="fa-solid fa-phone"></i><a href="tel:+255712868079">+255 712 868 079</a></li>
-                        <li><i class="fa-regular fa-envelope"></i><a href="mailto:ukindutour@gmail.com">ukindutour@gmail.com</a></li>
-                        <li><i class="fa-regular fa-envelope"></i><a href="mailto:info@ukindutour.co.tz">info@ukindutour.co.tz</a></li>
-                        <li><i class="fa-solid fa-location-dot"></i><a href="https://maps.app.goo.gl/oLW5EkBoyWxEwP4EA?g_st=aw" target="_blank" rel="noopener">Nungwi Beach, Zanzibar</a></li>
+                        <li><a href="/stone-town-tour">Stone Town</a></li>
+                        <li><a href="/mnemba-island-snorkeling-tour">Mnemba Atoll</a></li>
+                        <li><a href="/prison-island-tour">Prison Island</a></li>
+                        <li><a href="/jozani-forest-walking-tour">Jozani Forest</a></li>
+                        <li><a href="/nakupenda-sandbank-tour">Nakupenda Sandbank</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-contact">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/255712868079" target="_blank" rel="noopener">+255 712 868 079</a></li>
+                        <li><i class="fa-regular fa-envelope-open"></i><a href="mailto:info@ukindutour.co.tz">info@ukindutour.co.tz</a></li>
+                        <li><i class="fa-regular fa-envelope-open"></i><a href="mailto:ukindutour@gmail.com">ukindutour@gmail.com</a></li>
+                        <li><i class="fa-solid fa-location-dot"></i><a href="https://maps.app.goo.gl/oLW5EkBoyWxEwP4EA?g_st=aw" target="_blank" rel="noopener">Nungwi Beach, Zanzibar, Tanzania</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>Copyright &copy; <span id="year">2026</span> All Rights Reserved, <a href="/index">Ukindu Tour and Safari</a></p>
-                <p>Tanzania safaris &middot; Zanzibar tours &middot; Transfers</p>
+                <p>&copy; <span id="year">2026</span> Ukindu Tour &amp; Safari. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="/index#privacy">Privacy Policy</a>
+                    <a href="/index#terms">Terms &amp; Conditions</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -289,7 +394,7 @@
         <span class="ic"><i class="fa-brands fa-whatsapp"></i></span>
         <span class="txt"><small>WhatsApp</small>Chat with us</span>
     </a>
-    <script defer src="assets/js/home-premium.js"></script>
+    <script defer src="assets/js/site-header.js"></script>
     <script defer src="assets/js/faqs-premium.js"></script>
 
     <div class="gtranslate_wrapper"></div>

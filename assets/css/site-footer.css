@@ -1,164 +1,262 @@
-/* Shared footer styling for every site page. */
+/* Shared luxury dark oceanic footer for every site page */
 html,
 body {
   max-width: 100%;
   overflow-x: clip !important;
 }
-/* The interior template has an ivory body background. Keep any final body
-   pixels below the footer on the same charcoal canvas as the footer. */
+
 html:has(.site-footer) {
-  background-color: #1b1b19;
+  background-color: #0B1F33;
 }
-body:has(.site-footer) {
-  background-image: linear-gradient(#1b1b19, #1b1b19);
-  background-position: bottom left;
-  background-repeat: no-repeat;
-  background-size: 100% 40px;
-}
+
 .site-footer {
-  background: #1b1b19;
-  color: rgba(250, 246, 238, 0.72);
-  padding: 68px 0 24px;
-  font: 15px/1.7 "DM Sans", "Inter", system-ui, sans-serif;
+  position: relative;
+  background: linear-gradient(180deg, #0B1F33 0%, #071524 100%);
+  color: rgba(248, 252, 255, 0.76);
+  padding: 84px 0 28px;
+  font: 400 15px/1.7 "Outfit", system-ui, -apple-system, sans-serif;
   min-width: 0;
+  overflow: hidden;
 }
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00B4D8, #0077B6, #FFD166, #00B4D8);
+}
+
 .site-footer .container {
-  width: min(100% - 40px, 1180px);
-  max-width: 1180px;
+  width: min(100% - 40px, 1240px);
+  max-width: 1240px;
   min-width: 0;
   margin: 0 auto;
   padding: 0;
 }
+
 .site-footer .footer-top {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr)) minmax(0, 1.25fr);
-  gap: 32px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(250, 246, 238, 0.1);
+  grid-template-columns: minmax(0, 1.45fr) repeat(3, minmax(0, 1fr)) minmax(0, 1.25fr);
+  gap: 36px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .site-footer .footer-brand {
   display: grid;
-  gap: 16px;
+  gap: 18px;
   align-content: start;
 }
+
+.site-footer .footer-brand > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: max-content;
+  max-width: 100%;
+  color: #FFFFFF;
+}
+
 .site-footer .footer-brand img {
   display: block;
+  flex: 0 0 auto;
   width: auto;
-  height: 52px;
+  height: 64px;
 }
+
+.site-footer .footer-brand-title {
+  color: #FFFFFF;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: clamp(17px, 1.55vw, 20px);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+@media (min-width: 1200px) {
+  .site-footer .footer-brand > a {
+    gap: 11px;
+  }
+  .site-footer .footer-brand-title {
+    font-size: 16.5px;
+  }
+}
+
 .site-footer .footer-brand p,
 .site-footer .footer-bottom p {
   margin: 0;
-  color: inherit;
+  color: rgba(248, 252, 255, 0.74);
+  font-size: 14.5px;
+  line-height: 1.7;
 }
+
 .site-footer .footer-col h4 {
-  margin: 0 0 14px;
-  color: #c8963e;
-  font-family: "DM Sans", "Inter", system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  margin: 0 0 18px;
+  color: #FFD166;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  overflow-wrap: anywhere;
 }
+
 .site-footer .footer-top ul {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   min-width: 0;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 .site-footer .footer-top li {
   min-width: 0;
   margin: 0;
   padding: 0;
-  color: inherit;
-  font-size: 14px;
-  line-height: 1.6;
+  color: rgba(248, 252, 255, 0.78);
+  font-size: 14.5px;
+  line-height: 1.55;
 }
+
 .site-footer a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
 .site-footer .footer-col a:hover,
-.site-footer .footer-brand a:hover {
-  color: #c8963e;
+.site-footer .footer-brand a:hover,
+.site-footer .footer-bottom a:hover {
+  color: #00B4D8;
 }
+
 .site-footer .footer-contact li {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   min-width: 0;
 }
-.site-footer .footer-contact li a { min-width: 0; overflow-wrap: anywhere; }
+
+.site-footer .footer-contact li a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .site-footer .footer-contact i {
-  flex: 0 0 22px;
-  width: 22px;
-  margin-top: 4px;
-  color: #c8963e;
-  font-size: 18px;
-  line-height: 1.2;
-  text-align: center;
-}
-.site-footer .socials {
-  display: flex;
-  gap: 10px;
-}
-.site-footer .socials a {
-  display: grid;
+  display: inline-grid;
+  flex: 0 0 38px;
   width: 38px;
   height: 38px;
   place-items: center;
-  border: 1px solid rgba(250, 246, 238, 0.18);
+  margin-top: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 50%;
-  color: #faf6ee;
-  transition: all 0.25s;
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  font-size: 17px;
+  line-height: 1;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+.site-footer .footer-contact li:hover i {
+  border-color: transparent;
+  background: linear-gradient(135deg, #00B4D8, #0077B6);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.site-footer .socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.site-footer .socials a {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  font-size: 18px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .site-footer .socials a:hover {
-  border-color: #c8963e;
-  background: #c8963e;
-  color: #1b1b19;
+  border-color: transparent;
+  background: linear-gradient(135deg, #00B4D8, #0077B6);
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -6px rgba(0, 180, 216, 0.55);
 }
+
 .site-footer .footer-bottom {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 12px;
-  padding-top: 20px;
-  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px 28px;
+  padding-top: 26px;
+  font-size: 13.5px;
+  color: rgba(248, 252, 255, 0.84);
 }
-@media (max-width: 1199px) {
-  .site-footer .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .site-footer .footer-brand { grid-column: 1 / -1; }
+
+.site-footer .footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
-@media (max-width: 1023px) {
-  .site-footer .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .site-footer .footer-bottom { gap: 14px; padding-bottom: 56px; }
-}
-@media (min-width: 1024px) {
+
+@media (min-width: 641px) {
   .site-footer .footer-bottom {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-    gap: 12px;
-    padding: 20px 0;
+    justify-content: center;
+    padding-inline: 180px;
   }
-  .site-footer .footer-bottom p:first-child { grid-column: 2; text-align: center; }
-  .site-footer .footer-bottom p:last-child { display: none; }
 }
-@media (max-width: 760px) {
-  .site-footer { padding: 60px 0 28px; }
+
+@media (max-width: 1199px) {
   .site-footer .footer-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px 20px;
-    padding-bottom: 40px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .site-footer .footer-brand { grid-column: 1 / -1; }
+  .site-footer .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-footer .footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 64px 0 32px;
+  }
+  .site-footer .footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 20px;
+    padding-bottom: 36px;
+  }
+  .site-footer .footer-brand,
+  .site-footer .footer-contact {
+    grid-column: 1 / -1;
+  }
   .site-footer .footer-bottom {
     flex-direction: column;
-    gap: 14px;
-    padding-bottom: 72px;
     text-align: center;
+    padding-bottom: 64px;
+  }
+  .site-footer .footer-legal {
+    justify-content: center;
   }
 }

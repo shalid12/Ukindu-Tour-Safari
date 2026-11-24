@@ -14,12 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (!content || !headingLink || content.querySelector('.zanzibar-tour-link')) return;
 
-    var category = document.createElement('p');
-    category.className = 'zanzibar-tour-category';
-    category.textContent = document.body.classList.contains('zanzibar-fullday-listing')
-      ? 'Zanzibar · Full-Day Experience'
-      : 'Zanzibar · Half-Day Experience';
-    content.insertBefore(category, content.querySelector('.title'));
+    if (!content.querySelector('.zanzibar-tour-meta')) {
+      var category = document.createElement('p');
+      category.className = 'zanzibar-tour-category';
+      category.textContent = document.body.classList.contains('zanzibar-fullday-listing')
+        ? 'Zanzibar · Full-Day Experience'
+        : 'Zanzibar · Half-Day Experience';
+      content.insertBefore(category, content.querySelector('.title'));
+    }
 
     var title = headingLink.textContent.trim().replace(/\s+/g, ' ');
     var action = document.createElement('a');
