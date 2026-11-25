@@ -1,7 +1,21 @@
 /* Shared luxury tour card treatment for Zanzibar Half-Day and Full-Day listing pages */
 .zanzibar-tour-listing {
+  margin: 0;
   color: #0B1F33;
+  background: #F8FCFF;
   font-family: "Outfit", system-ui, sans-serif;
+}
+.zanzibar-tour-listing *,
+.zanzibar-tour-listing *::before,
+.zanzibar-tour-listing *::after {
+  box-sizing: border-box;
+}
+.zanzibar-tour-listing a {
+  text-decoration: none;
+}
+.zanzibar-tour-listing img {
+  max-width: 100%;
+  display: block;
 }
 .zanzibar-tour-heading {
   display: flex;
@@ -26,7 +40,8 @@
 }
 .zanzibar-tour-listing .rts-popular-package-area > .container {
   width: min(100% - 40px, 1240px);
-  max-width: none;
+  max-width: 1240px;
+  margin-inline: auto;
 }
 .zanzibar-tour-heading h2 {
   margin: 0;
@@ -45,15 +60,33 @@
 }
 .zanzibar-tour-listing .rts-popular-package-area {
   background: #F8FCFF;
+  padding-bottom: 56px;
 }
 .zanzibar-tour-listing .rts-popular-package-area .section-inner {
   margin-top: 0;
   padding-top: 52px;
 }
 .zanzibar-tour-listing .rts-popular-package-area .row {
-  --bs-gutter-x: 24px;
-  --bs-gutter-y: 24px;
-  row-gap: 24px !important;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0 0 24px;
+}
+.zanzibar-tour-listing .rts-popular-package-area .row > [class*="col-"] {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+@media (max-width: 1024px) {
+  .zanzibar-tour-listing .rts-popular-package-area .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .zanzibar-tour-listing .rts-popular-package-area .row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .zanzibar-tour-listing .package-wrapper3 {
