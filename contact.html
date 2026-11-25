@@ -313,11 +313,28 @@
         }
 
         .contact-form-panel {
-            padding: clamp(24px, 4vw, 40px);
+            min-width: 0;
+            max-width: 100%;
+            overflow: hidden;
+            padding: clamp(20px, 4vw, 40px);
             border-radius: 28px;
             background: #FFFFFF;
             border: 1px solid rgba(11, 31, 51, 0.08);
             box-shadow: 0 24px 60px -22px rgba(11, 31, 51, 0.16);
+        }
+        .contact-form-panel [data-fc-key],
+        .contact-form-panel iframe {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+            display: block;
+        }
+        .contact-split,
+        .contact-split > *,
+        .contact-location-grid,
+        .contact-location-grid > * {
+            min-width: 0;
+            max-width: 100%;
         }
         .contact-form-heading {
             margin-bottom: 20px;
@@ -699,8 +716,8 @@
                         <h2>What Are You Planning?</h2>
                         <p>Share your dates, destinations, and number of travelers—we&rsquo;ll get back to you promptly.</p>
                     </div>
-                    <div data-fc-key="280e7af0" style="max-width:1100px;min-height:499px"></div>
-                    <script src="https://app.formcrafts.com/embed.js"></script>
+                    <div data-fc-key="280e7af0" style="width:100%;max-width:100%;min-height:499px;overflow:hidden"></div>
+                    <script defer src="https://app.formcrafts.com/embed.js"></script>
                 </div>
             </div>
         </section>

@@ -607,7 +607,7 @@ body.uk-home.tour-detail-page {
   position: sticky;
   top: 98px;
   grid-column: 2;
-  grid-row: 1 / 3;
+  grid-row: 1;
   align-self: start;
 }
 
