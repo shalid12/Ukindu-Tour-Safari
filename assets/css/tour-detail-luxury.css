@@ -8,12 +8,44 @@ body.uk-home.tour-detail-page {
   background: #F8FCFF;
   color: #0B1F33;
   font-family: "Outfit", system-ui, -apple-system, sans-serif;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.tour-detail-page main {
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .tour-detail-page .container {
   width: min(100% - 40px, 1240px);
   max-width: 1240px;
   margin-inline: auto;
+  min-width: 0;
+}
+
+.td-layout,
+.td-stack,
+.td-card,
+.td-sidebar,
+.td-book-card,
+.td-enquiry-card,
+.td-facts-grid,
+.td-fact,
+.td-fact > div,
+.td-mosaic,
+.td-other-grid {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.td-enquiry-card {
+  overflow: hidden;
+}
+.td-enquiry-card [data-fc-key],
+.td-enquiry-card iframe {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 /* ===================== 1. EDITORIAL TOUR HERO ===================== */
@@ -689,8 +721,8 @@ body.uk-home.tour-detail-page {
 
 @media (max-width: 1024px) {
   .td-layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
   .td-stack,
   .td-sidebar,
@@ -705,7 +737,7 @@ body.uk-home.tour-detail-page {
 
 @media (max-width: 960px) {
   .td-mosaic {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: 220px 160px;
   }
   .td-photo--main { grid-column: span 2; grid-row: span 1; }
@@ -713,11 +745,22 @@ body.uk-home.tour-detail-page {
 }
 
 @media (max-width: 767px) {
-  .tour-detail-page .container { width: min(100% - 32px, 1240px); }
-  .td-hero { padding: 122px 0 44px; min-height: 410px; }
-  .td-facts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tour-detail-page .container { width: min(100% - 28px, 1240px); }
+  .td-hero { padding: 118px 0 42px; min-height: 360px; }
+  .td-hero h1 { font-size: clamp(1.8rem, 7.2vw, 2.35rem); overflow-wrap: break-word; }
+  .td-hero-badge { max-width: 100%; white-space: normal; text-align: left; }
+  .td-facts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .td-fact { padding: 12px; gap: 10px; }
+  .td-fact strong { font-size: 13px; overflow-wrap: break-word; }
+  .td-card { padding: 20px 18px; border-radius: 20px; }
+  .td-card-head h2 { font-size: 1.35rem; }
+  .td-book-card { padding: 22px 18px; border-radius: 22px; }
+  .td-price-head { flex-wrap: wrap; }
   .td-highlights,
   .td-inc-grid,
   .td-tips-grid,
-  .td-other-grid { grid-template-columns: 1fr; }
+  .td-other-grid { grid-template-columns: minmax(0, 1fr); }
+  .td-faq-list summary { padding: 14px 40px 14px 14px; font-size: 14.5px; }
+  .td-faq-list details p { padding: 0 14px 14px; }
+  .td-mosaic { border-radius: 18px; gap: 8px; grid-template-rows: 200px 135px; }
 }
