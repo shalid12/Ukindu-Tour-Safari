@@ -518,7 +518,25 @@
         @media (max-width: 767px) {
             .contact-page .container { width: min(100% - 28px, 1240px); }
             .contact-lux-hero { padding: 124px 0 54px; min-height: 440px; }
-            .contact-option-grid,
+            .contact-option-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+            .contact-option-card {
+                padding: 16px 14px;
+                border-radius: 18px;
+            }
+            .contact-option-icon {
+                width: 42px;
+                height: 42px;
+                margin-bottom: 12px;
+                border-radius: 13px;
+                font-size: 18px;
+            }
+            .contact-option-card small { font-size: 10px; letter-spacing: 0.08em; }
+            .contact-option-card h3 { font-size: 15.5px; margin: 4px 0 4px; }
+            .contact-option-card p { font-size: 12.5px; overflow-wrap: anywhere; margin-bottom: 10px; }
+            .contact-option-card span { font-size: 12.5px; }
             .contact-process-grid { grid-template-columns: minmax(0, 1fr); }
             .contact-form-panel { padding: 18px 14px; border-radius: 20px; }
             .contact-location-grid { padding: 20px 16px; border-radius: 20px; }
