@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0B1F33">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/ukindu_tour_round_logo.png">
@@ -323,16 +323,25 @@
             box-shadow: 0 24px 60px -22px rgba(11, 31, 51, 0.16);
         }
         .contact-form-panel [data-fc-key],
+        .contact-form-panel [data-fc-key] > *,
         .contact-form-panel iframe {
             width: 100% !important;
             max-width: 100% !important;
             min-width: 0 !important;
             display: block;
+            border: 0;
         }
-        .contact-split,
-        .contact-split > *,
+        .contact-page main,
+        .contact-page .c-section {
+            max-width: 100%;
+            overflow-x: clip;
+        }
+        .contact-enquiry-grid,
+        .contact-enquiry-grid > *,
         .contact-location-grid,
-        .contact-location-grid > * {
+        .contact-location-grid > *,
+        .contact-option-grid > *,
+        .contact-process-grid > * {
             min-width: 0;
             max-width: 100%;
         }
@@ -504,13 +513,15 @@
             .contact-option-grid,
             .contact-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .contact-enquiry-grid,
-            .contact-location-grid { grid-template-columns: 1fr; }
+            .contact-location-grid { grid-template-columns: minmax(0, 1fr); }
         }
         @media (max-width: 767px) {
-            .contact-page .container { width: min(100% - 32px, 1240px); }
-            .contact-lux-hero { padding: 124px 0 54px; min-height: 460px; }
+            .contact-page .container { width: min(100% - 28px, 1240px); }
+            .contact-lux-hero { padding: 124px 0 54px; min-height: 440px; }
             .contact-option-grid,
-            .contact-process-grid { grid-template-columns: 1fr; }
+            .contact-process-grid { grid-template-columns: minmax(0, 1fr); }
+            .contact-form-panel { padding: 18px 14px; border-radius: 20px; }
+            .contact-location-grid { padding: 20px 16px; border-radius: 20px; }
         }
     </style>
 
