@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
@@ -157,7 +157,7 @@
     </script>
       <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.gtranslate.net">
-    <link rel="preload" as="image" href="assets/images/banner/home_hero_1920.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/images/banner/hero-zanzibar-poster.jpg" fetchpriority="high">
 </head>
 
   <body class="uk-home">
@@ -354,14 +354,17 @@
         aria-label="Zanzibar Luxury Experiences"
       >
         <div class="lux-hero__media" data-parallax="0.2">
-          <img
-            src="assets/images/banner/zanzibar_bg.jpg"
-            width="2048"
-            height="1152"
-            fetchpriority="high"
-            decoding="async"
-            alt="Turquoise Indian Ocean waters and traditional dhow boat in Zanzibar"
-          />
+          <video
+            class="lux-hero__video"
+            id="heroBgVideo"
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster="assets/images/banner/zanzibar_red_monkey.jpg"
+            data-src="assets/images/banner/hero-zanzibar.mp4"
+            aria-label="Aerial and coastal views of Stone Town and Zanzibar"
+          ></video>
         </div>
         <div class="lux-hero__overlay" aria-hidden="true"></div>
 

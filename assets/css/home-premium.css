@@ -213,11 +213,16 @@ button {
   will-change: transform;
 }
 
-.lux-hero__media img {
+.lux-hero__media img,
+.lux-hero__media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 48%;
+  display: block;
+}
+
+.lux-hero__media img {
   animation: heroKenBurns 24s ease-in-out infinite alternate;
 }
 

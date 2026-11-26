@@ -565,7 +565,50 @@
     startHsAuto();
   }
 
-  /* ---------- 13. Dynamic Copyright Year ---------- */
+  /* ---------- 13. Fast-Loading Hero Background Video ---------- */
+  var heroBgVideo = document.getElementById("heroBgVideo");
+  if (heroBgVideo) {
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    var saveData = conn && conn.saveData;
+    var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var videoUrl = heroBgVideo.getAttribute("data-src");
+
+    if (videoUrl && !saveData && !prefersReduced) {
+      var loadHeroVideo = function () {
+        if (heroBgVideo.getAttribute("src")) return;
+        heroBgVideo.setAttribute("src", videoUrl);
+        heroBgVideo.load();
+        var playPromise = heroBgVideo.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(function () {});
+        }
+      };
+
+      if (document.readyState === "complete") {
+        loadHeroVideo();
+      } else {
+        window.addEventListener("load", loadHeroVideo, { once: true });
+      }
+
+      if ("IntersectionObserver" in window) {
+        var heroSection = document.getElementById("hero") || heroBgVideo;
+        var heroObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!heroBgVideo.getAttribute("src")) return;
+            if (entry.isIntersecting) {
+              var p = heroBgVideo.play();
+              if (p && typeof p.catch === "function") p.catch(function () {});
+            } else {
+              heroBgVideo.pause();
+            }
+          });
+        }, { threshold: 0.05 });
+        heroObserver.observe(heroSection);
+      }
+    }
+  }
+
+  /* ---------- 14. Dynamic Copyright Year ---------- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
