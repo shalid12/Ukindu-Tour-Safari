@@ -1977,6 +1977,19 @@ button {
 }
 
 /* ===================== MODALS (LIGHTBOX, VIDEO, QUOTE, LEGAL) ===================== */
+html.modal-scroll-lock,
+body.modal-scroll-lock {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+}
+body.modal-scroll-lock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  touch-action: none;
+}
+
 .lux-modal {
   position: fixed;
   inset: 0;
@@ -1984,6 +1997,7 @@ button {
   display: grid;
   place-items: center;
   padding: 20px;
+  overscroll-behavior: contain;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s var(--ease), visibility 0.3s;
@@ -1999,6 +2013,13 @@ button {
   background: rgba(11, 31, 51, 0.86);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  touch-action: none;
+}
+
+.quote-modal-card,
+.legal-modal-card {
+  touch-action: pan-y;
+  overscroll-behavior: contain;
 }
 
 .lightbox-stage {
@@ -2067,6 +2088,15 @@ button {
   overflow: hidden;
   background: var(--dark);
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+}
+
+.cinema-reel iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .cinema-slide {

@@ -268,11 +268,40 @@
   }
 
   /* ---------- 7. Modal Helpers ---------- */
+  var isScrollLocked = false;
+  var lockedScrollY = 0;
+
+  function lockPageScroll() {
+    if (isScrollLocked) return;
+    isScrollLocked = true;
+    lockedScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var scrollbarGap = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.classList.add("modal-scroll-lock");
+    body.classList.add("modal-scroll-lock");
+    body.style.top = -lockedScrollY + "px";
+    if (scrollbarGap > 0) {
+      body.style.paddingRight = scrollbarGap + "px";
+    }
+  }
+
+  function unlockPageScroll() {
+    if (!isScrollLocked) return;
+    isScrollLocked = false;
+    var prevBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = "auto";
+    document.documentElement.classList.remove("modal-scroll-lock");
+    body.classList.remove("modal-scroll-lock");
+    body.style.top = "";
+    body.style.paddingRight = "";
+    window.scrollTo(0, lockedScrollY);
+    document.documentElement.style.scrollBehavior = prevBehavior;
+  }
+
   function openModal(modal) {
     if (!modal) return;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
-    body.style.overflow = "hidden";
+    lockPageScroll();
   }
 
   function closeAllModals() {
@@ -280,9 +309,14 @@
       m.classList.remove("is-open");
       m.setAttribute("aria-hidden", "true");
     });
-    body.style.overflow = "";
+    unlockPageScroll();
     stopCinemaReel();
   }
+
+  document.querySelectorAll(".lux-modal__backdrop").forEach(function (backdrop) {
+    backdrop.addEventListener("wheel", function (e) { e.preventDefault(); }, { passive: false });
+    backdrop.addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });
+  });
 
   document.querySelectorAll("[data-close-modal]").forEach(function (el) {
     el.addEventListener("click", closeAllModals);
@@ -332,48 +366,19 @@
   /* ---------- 9. Cinema Video Showcase Modal ---------- */
   var videoModal = document.getElementById("videoModal");
   var openVideoTriggers = document.querySelectorAll("[data-open-video], #openVideoModal");
-  var cinemaSlides = Array.prototype.slice.call(document.querySelectorAll(".cinema-slide"));
-  var cinemaTitle = document.getElementById("cinemaTitle");
-  var cinemaSub = document.getElementById("cinemaSub");
-  var cinemaBar = document.getElementById("cinemaBar");
-  var cinemaTimer = null;
-  var cinemaIdx = 0;
-  var cinemaTick = 0;
-
-  function showCinemaSlide(idx) {
-    cinemaIdx = idx % cinemaSlides.length;
-    cinemaSlides.forEach(function (s, i) {
-      s.classList.toggle("is-active", i === cinemaIdx);
-    });
-    var active = cinemaSlides[cinemaIdx];
-    if (active && cinemaTitle && cinemaSub) {
-      cinemaTitle.textContent = active.getAttribute("data-title") || "";
-      cinemaSub.textContent = active.getAttribute("data-sub") || "";
-    }
-  }
+  var zanzibarVideoFrame = document.getElementById("zanzibarVideoFrame");
 
   function startCinemaReel() {
-    stopCinemaReel();
-    cinemaTick = 0;
-    showCinemaSlide(0);
-    cinemaTimer = setInterval(function () {
-      cinemaTick += 100;
-      var totalDuration = 4000;
-      var pct = Math.min((cinemaTick / totalDuration) * 100, 100);
-      if (cinemaBar) cinemaBar.style.width = pct + "%";
-      if (cinemaTick >= totalDuration) {
-        cinemaTick = 0;
-        showCinemaSlide(cinemaIdx + 1);
-      }
-    }, 100);
+    if (zanzibarVideoFrame) {
+      var videoSrc = zanzibarVideoFrame.getAttribute("data-src");
+      if (videoSrc) zanzibarVideoFrame.setAttribute("src", videoSrc);
+    }
   }
 
   function stopCinemaReel() {
-    if (cinemaTimer) {
-      clearInterval(cinemaTimer);
-      cinemaTimer = null;
+    if (zanzibarVideoFrame) {
+      zanzibarVideoFrame.setAttribute("src", "");
     }
-    if (cinemaBar) cinemaBar.style.width = "0%";
   }
 
   if (openVideoTriggers.length && videoModal) {
@@ -435,7 +440,7 @@
     sendQuoteEmail.addEventListener("click", function () {
       var msg = buildQuoteMessage();
       if (!msg) return;
-      window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Zanzibar Tour Quote Request") + "&body=" + encodeURIComponent(msg);
+      window.open("mailto:" + EMAIL + "?subject=" + encodeURIComponent("Zanzibar Tour Quote Request") + "&body=" + encodeURIComponent(msg), "_blank", "noopener");
       closeAllModals();
     });
   }
@@ -454,7 +459,7 @@
     },
     terms: {
       title: "Terms & Conditions",
-      html: "<p>All private Zanzibar tours, transfers, and Tanzania safaris are operated by Ukindu Tour &amp; Safari based in Nungwi, Zanzibar.</p>" +
+      html: "<p>All private Zanzibar tours, transfers, and Tanzania safaris are operated by Ukindu Tour &amp; Safari based in Marumbi, Zanzibar.</p>" +
         "<h4>Bookings &amp; Flexibility</h4><p>Tour reservations can be confirmed via WhatsApp or email. Free date adjustments are available when requested at least 24 hours in advance, subject to park or boat availability.</p>" +
         "<h4>Weather &amp; Marine Safety</h4><p>For ocean excursions such as Mnemba Atoll and Safari Blue, routes and timing may be adjusted by our licensed captains to ensure guest safety and comfort.</p>"
     }
