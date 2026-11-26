@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
@@ -157,7 +157,7 @@
     </script>
       <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.gtranslate.net">
-    <link rel="preload" as="image" href="assets/images/banner/hero-zanzibar-poster.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/images/banner/zanzibar_red_monkey.jpg" fetchpriority="high">
 </head>
 
   <body class="uk-home">
@@ -357,14 +357,19 @@
           <video
             class="lux-hero__video"
             id="heroBgVideo"
+            autoplay
             muted
             loop
             playsinline
-            preload="none"
+            preload="metadata"
             poster="assets/images/banner/zanzibar_red_monkey.jpg"
-            data-src="assets/images/banner/hero-zanzibar.mp4"
-            aria-label="Aerial and coastal views of Stone Town and Zanzibar"
-          ></video>
+            aria-label="Aerial and coastal views of Zanzibar"
+          >
+            <source
+              src="assets/images/banner/hero-zanzibar.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
         <div class="lux-hero__overlay" aria-hidden="true"></div>
 
